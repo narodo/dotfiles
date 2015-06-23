@@ -12,21 +12,14 @@ set ls=2
 set foldcolumn=4
 set foldmethod=syntax
 let c_no_comment_fold=1
-"let &t_Co=256
-"set t_Co=256
+
 colorscheme lucius
 filetype indent on
 set expandtab
-"Set Ctags file list
-set tags=./tags,/work/cecc/tags,/home/ina/ProfibusPAStack/tags
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 50
+
 "Custom Key Mappings
 map <c-p> ]p
 map <c-o> :nohl<CR>
-map <F2> :NERDTreeToggle<CR>
-map <F8> :!/usr/bin/ctags -R<CR> 
-map <F3> :TlistToggle<CR>
 map <S-t> <c-]>
 map <c-J> <C-W>j<C-W>
 map <c-K> <C-W>k<C-W>
@@ -43,7 +36,6 @@ au BufNewFile,BufRead *.xdc setf tcl
 "Change Status line background when chaning Insert mode
 au InsertEnter * hi StatusLine ctermfg=Black ctermbg=Red term=none
 au InsertLeave * hi StatusLine ctermfg=Black ctermbg=Green term=none
-"inoremap <c-c> <c-o>:hi statusline ctermfg=Black ctermbg=Green<cr><c-c>
 inoremap <c-c> <Esc>
 nnoremap <C-H> :Hexmode<CR>
 inoremap <C-H> <Esc>:Hexmode<CR>
