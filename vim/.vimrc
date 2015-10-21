@@ -1,83 +1,85 @@
+" set UTF-8 encoding
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+" disable vi compatibility
+set nocompatible
+
+" indention
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+"Change indent style for MAKE files
+:autocmd FileType make set noexpandtab
+
+" editor setup and info 
+set colorcolumn=80
 set mouse=a
+set number
+set ruler
+set ls=2
+set undolevels=1000
+set history=1000
+set switchbuf=useopen,usetab,newtab
+set showmode
+filetype plugin indent on
+
+" searching and highlighting 
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set number
-set ruler
+
+" syntax highlighting
 syntax on
-set switchbuf=useopen,usetab,newtab
-set modeline
-set ls=2
+au BufNewFile,BufRead *.xdc setf tcl
+
+" color 
+colorscheme lucius
+highlight ColorColumn ctermbg=darkgrey
+
+" folding
 set foldcolumn=4
 set foldmethod=syntax
-let c_no_comment_fold=1
 
-colorscheme lucius
-filetype indent on
-set expandtab
-
-"Custom Key Mappings
-map <c-p> ]p
-map <c-o> :nohl<CR>
-map <S-t> <c-]>
+" ----- Custom Key Mappings -----
+" use jj instead of ESC
+inoremap jj <Esc>
+" navigate long lines
+nnoremap k gk
+nnoremap j gj
+" leader key
+let mapleader=","
+" navigate vsplits with CTRL + h/j/k/l
 map <c-J> <C-W>j<C-W>
 map <c-K> <C-W>k<C-W>
 map <c-H> <C-W>h<C-W>
 map <c-L> <C-W>l<C-W>
-vmap <F4> :!xclip -f -sel clip<CR>
-map <F5> :-1r !xclip -o -sel clip<CR>
-"Change indent style for MAKE files
-:autocmd FileType make set noexpandtab
+" navigate tabs CTRL + "left"/"right"
+map <C-left> :tabp <CR>
+map <C-right> :tabp <CR>
+" toggle NERD Tree
+map <C-n> :NERDTreeTabsToggle<CR>
+" focus on currently opened buffer
+map <leader>r :NERDTreeFind<CR>
+" dehighlight with oo
+nnoremap oo :nohl<CR>
 
-"add files to syntax highlighting
-au BufNewFile,BufRead *.xdc setf tcl
+" copy/paste from clipboard
+vnoremap cc "+y
+noremap pp "+p
 
-"Change Status line background when chaning Insert mode
-au InsertEnter * hi StatusLine ctermfg=Black ctermbg=Red term=none
-au InsertLeave * hi StatusLine ctermfg=Black ctermbg=Green term=none
-inoremap <c-c> <Esc>
-nnoremap <C-H> :Hexmode<CR>
-inoremap <C-H> <Esc>:Hexmode<CR>
-vnoremap <C-H> :<C-U>Hexmode<CR>
+" --- NERD Tree ---
+" automaticall start NERDTree
+autocmd vimenter * NERDTree
+" focus main window
+autocmd vimenter * wincmd p
 
-" ex command for toggling hex mode - define mapping if desired
-command -bar Hexmode call ToggleHex()
 
-" helper function to toggle hex mode
-function ToggleHex()
-  " hex mode should be considered a read-only operation
-  " save values for modified and read-only for restoration later,
-  " and clear the read-only flag for now
-  let l:modified=&mod
-  let l:oldreadonly=&readonly
-  let &readonly=0
-  let l:oldmodifiable=&modifiable
-  let &modifiable=1
-  if !exists("b:editHex") || !b:editHex
-    " save old options
-    let b:oldft=&ft
-    let b:oldbin=&bin
-    " set new options
-    setlocal binary " make sure it overrides any textwidth, etc.
-    let &ft="xxd"
-    " set status
-    let b:editHex=1
-    " switch to hex editor
-    %!xxd
-  else
-    " restore old options
-    let &ft=b:oldft
-    if !b:oldbin
-      setlocal nobinary
-    endif
-    " set status
-    let b:editHex=0
-    " return to normal editing
-    %!xxd -r
-  endif
-  " restore values for modified and read only state
-  let &mod=l:modified
-  let &readonly=l:oldreadonly
-  let &modifiable=l:oldmodifiable
-endfunction
+" execute pathogen plugin management
+execute pathogen#infect()
+
+
