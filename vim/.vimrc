@@ -46,6 +46,7 @@ highlight ColorColumn ctermbg=235 guibg=#2F3436
 " folding
 set foldcolumn=4
 set foldmethod=syntax
+set foldlevelstart=99
 
 " ----- Custom Key Mappings -----
 " use jj instead of ESC
