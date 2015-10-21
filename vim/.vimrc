@@ -16,6 +16,8 @@ set expandtab
 :autocmd FileType make set noexpandtab
 
 " editor setup and info 
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 set colorcolumn=80
 set mouse=a
 set number
