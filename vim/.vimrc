@@ -41,7 +41,7 @@ au BufNewFile,BufRead *.xdc setf tcl
 colorscheme molokai
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=235 guibg=#2F3436
 
 " folding
 set foldcolumn=4
