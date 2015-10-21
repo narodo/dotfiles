@@ -38,8 +38,10 @@ syntax on
 au BufNewFile,BufRead *.xdc setf tcl
 
 " color 
-colorscheme lucius
-highlight ColorColumn ctermbg=darkgrey
+colorscheme molokai
+" highlight column 80 and 120+
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " folding
 set foldcolumn=4
@@ -65,20 +67,22 @@ map <C-right> :tabp <CR>
 map <C-n> :NERDTreeTabsToggle<CR>
 " focus on currently opened buffer
 map <leader>r :NERDTreeFind<CR>
-" dehighlight with oo
-nnoremap oo :nohl<CR>
+" dehighlight with two // 
+nnoremap // :nohl<CR>
 
 " copy/paste from clipboard
 vnoremap cc "+y
 noremap pp "+p
 
 " --- NERD Tree ---
-" automaticall start NERDTree
-autocmd vimenter * NERDTree
-" focus main window
-autocmd vimenter * wincmd p
+let g:nerdtree_tabs_open_on_gui_startup=0
+"---- UltiSnip ----
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 
+" ---- Pathogen ----
 " execute pathogen plugin management
 execute pathogen#infect()
 
