@@ -28,6 +28,9 @@ set history=1000
 set switchbuf=useopen,usetab,newtab
 set showmode
 filetype plugin indent on
+set hidden 
+set splitbelow
+set splitright
 
 " searching and highlighting 
 set hlsearch
@@ -44,6 +47,8 @@ colorscheme molokai
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2F3436
+" set font
+set guifont=Roboto\ Mono\ for\ Powerline\ 10
 
 " folding
 set foldcolumn=4
@@ -57,21 +62,29 @@ inoremap jj <Esc>
 nnoremap k gk
 nnoremap j gj
 " leader key
-let mapleader=","
-" navigate vsplits with CTRL + h/j/k/l
-map <c-J> <C-W>j<C-W>
-map <c-K> <C-W>k<C-W>
-map <c-H> <C-W>h<C-W>
-map <c-L> <C-W>l<C-W>
+let mapleader="\<Space>"
+" navigate buffers with CTRL + h/j/k/l
+map <C-h> :bprevious <CR> 
+map <C-l> :bnext <CR> 
+map <C-j> :b# <CR> 
+" navigate splits with <leader> + H/J/K/L
+map <leader>j <C-W>j<C-W>
+map <leader>k <C-W>k<C-W>
+map <leader>h <C-W>h<C-W>
+map <leader>l <C-W>l<C-W>
 " navigate tabs CTRL + "left"/"right"
-map <C-left> :tabp <CR>
-map <C-right> :tabp <CR>
+map <C-left> :tabprevious <CR>
+map <C-right> :tabnext <CR>
 " toggle NERD Tree
 map <C-n> :NERDTreeTabsToggle<CR>
 " focus on currently opened buffer
 map <leader>r :NERDTreeFind<CR>
 " dehighlight with two // 
 nnoremap // :nohl<CR>
+" hide active window
+map <leader>n :hide<CR>
+" open Ctrlp
+map <leader>p :CtrlPBuffer<CR>
 
 " copy/paste from clipboard
 vnoremap cc "+y
@@ -84,6 +97,16 @@ let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
+" --- Airline ---"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t' 
+let g:airline_theme ='molokai'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+
+"--- Signify ---"
+let g:signify_vcs_list = ['git', 'hg']
 
 " ---- Pathogen ----
 " execute pathogen plugin management
