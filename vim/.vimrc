@@ -29,8 +29,12 @@ set switchbuf=useopen,usetab,newtab
 set showmode
 filetype plugin indent on
 set hidden 
+" split preferences
 set splitbelow
 set splitright
+" default window size
+set lines=60
+set columns=90
 
 " searching and highlighting 
 set hlsearch
@@ -56,22 +60,23 @@ set foldmethod=syntax
 set foldlevelstart=99
 
 " ----- Custom Key Mappings -----
+set winaltkeys=no
 " use jj instead of ESC
 inoremap jj <Esc>
 " navigate long lines
 nnoremap k gk
 nnoremap j gj
-" leader key
+" leader key 
 let mapleader="\<Space>"
-" navigate buffers with CTRL + h/j/k/l
-map <C-h> :bprevious <CR> 
-map <C-l> :bnext <CR> 
-map <C-j> :b# <CR> 
-" navigate splits with <leader> + H/J/K/L
-map <leader>j <C-W>j<C-W>
-map <leader>k <C-W>k<C-W>
-map <leader>h <C-W>h<C-W>
-map <leader>l <C-W>l<C-W>
+" navigate buffers with ALT + h/j/k/l
+map <A-h> :bprevious <CR> 
+map <A-l> :bnext <CR> 
+map <A-j> :b# <CR> 
+" navigate splits with CTRL + h/j/k/l
+map <C-j> <C-W><C-j>
+map <C-k> <C-W><C-k>
+map <C-h> <C-W><C-h>
+map <C-l> <C-W><C-l>
 " navigate tabs CTRL + "left"/"right"
 map <C-left> :tabprevious <CR>
 map <C-right> :tabnext <CR>
