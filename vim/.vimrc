@@ -60,6 +60,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 
 " ----- Custom Key Mappings -----
+" disable handling of ALT keys by GUI
 set winaltkeys=no
 " use jj instead of ESC
 inoremap jj <Esc>
@@ -80,16 +81,12 @@ map <C-l> <C-W><C-l>
 " navigate tabs CTRL + "left"/"right"
 map <C-left> :tabprevious <CR>
 map <C-right> :tabnext <CR>
-" toggle NERD Tree
-map <C-n> :NERDTreeTabsToggle<CR>
-" focus on currently opened buffer
-map <leader>r :NERDTreeFind<CR>
 " dehighlight with two // 
 nnoremap // :nohl<CR>
 " hide active window
 map <leader>n :hide<CR>
-" open Ctrlp
-map <leader>p :CtrlPBuffer<CR>
+" close active buffer
+map <leader>q :bd<CR>
 
 " copy/paste from clipboard
 vnoremap cc "+y
@@ -97,6 +94,11 @@ noremap pp "+p
 
 " --- NERD Tree ---
 let g:nerdtree_tabs_open_on_gui_startup=0
+" toggle NERD Tree
+map <C-n> :NERDTreeTabsToggle<CR>
+" focus on currently opened buffer
+map <leader>r :NERDTreeFind<CR>
+
 "---- UltiSnip ----
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
@@ -111,7 +113,17 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
 "--- Signify ---"
-let g:signify_vcs_list = ['git', 'hg']
+let g:signify_vcs_list = ['hg', 'git']
+map <leader>gt :SignifyToggle<CR>
+map <leader>gr :SignifyRefresh<CR>
+map <leader>gj <plug>(signify-next-hunk)
+map <leader>gk <plug>(signify-prev-hunk)
+
+" ---- CtrlP -----"
+let g:ctrlp_match_window='top,order:btt,min:1,max:10,results:10'
+let g:ctrlp_open_new_file='r'
+" open Ctrlp
+map <leader>p :CtrlP<CR>
 
 " ---- Pathogen ----
 " execute pathogen plugin management
