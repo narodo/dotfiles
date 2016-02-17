@@ -3,11 +3,14 @@ set nocompatible
 filetype off
 set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
 call vundle#rc()
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/vundle'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'SirVer/ultisnips'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -66,8 +69,9 @@ syntax on
 au BufNewFile,BufRead *.xdc setf tcl
 
 " color 
-set t_Co=256
-colorscheme molokai
+set background=dark
+colorscheme solarized
+"
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2F3436
@@ -78,6 +82,7 @@ set guifont=Roboto\ Mono\ for\ Powerline\ 10
 set foldcolumn=4
 set foldmethod=syntax
 set foldlevelstart=99
+set t_ut=
 
 " ----- Custom Key Mappings -----
 " disable handling of ALT keys by GUI
@@ -104,7 +109,7 @@ map <C-right> :tabnext <CR>
 " dehighlight with two // 
 nnoremap // :nohl<CR>
 " hide active window
-map <leader>n :hide<CR>
+map <leader>c :hide<CR>
 " close active buffer
 map <leader>q :bd<CR>
 
@@ -115,7 +120,7 @@ noremap pp "+p
 " --- NERD Tree ---
 let g:nerdtree_tabs_open_on_gui_startup=0
 " toggle NERD Tree
-map <C-n> :NERDTreeTabsToggle<CR>
+map <leader>n :NERDTreeTabsToggle<CR>
 " focus on currently opened buffer
 map <leader>r :NERDTreeFind<CR>
 
@@ -127,7 +132,7 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 " --- Airline ---"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' 
-let g:airline_theme ='molokai'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
