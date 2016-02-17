@@ -47,6 +47,7 @@ syntax on
 au BufNewFile,BufRead *.xdc setf tcl
 
 " color 
+set t_Co=256
 colorscheme molokai
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
@@ -69,10 +70,10 @@ nnoremap k gk
 nnoremap j gj
 " leader key 
 let mapleader="\<Space>"
-" navigate buffers with ALT + h/j/k/l
-map <A-h> :bprevious <CR> 
-map <A-l> :bnext <CR> 
-map <A-j> :b# <CR> 
+" navigate buffers with  <leader> + h/j/k/l
+map <leader>h :bprevious <CR> 
+map <leader>l :bnext <CR> 
+map <leader>j :b# <CR> 
 " navigate splits with CTRL + h/j/k/l
 map <C-j> <C-W><C-j>
 map <C-k> <C-W><C-k>
@@ -117,13 +118,10 @@ let g:signify_vcs_list = ['hg', 'git']
 map <leader>gt :SignifyToggle<CR>
 map <leader>gr :SignifyRefresh<CR>
 map <leader>gj <plug>(signify-next-hunk)
-map <leader>gk <plug>(signify-prev-hunk)
-
-" ---- CtrlP -----"
-let g:ctrlp_match_window='top,order:btt,min:1,max:10,results:10'
-let g:ctrlp_open_new_file='r'
-" open Ctrlp
 map <leader>p :CtrlP<CR>
+
+" ---- Eclim -----"
+let g:EclimCompletionMethod = 'omnifunc'
 
 " ---- Pathogen ----
 " execute pathogen plugin management
