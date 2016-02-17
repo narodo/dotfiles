@@ -1,3 +1,22 @@
+" ------- Vundle -------------
+set nocompatible
+filetype off
+set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
+call vundle#rc()
+Plugin 'gmarik/vundle'
+Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'mhinz/vim-signify'
+Plugin 'honza/vim-snippets'
+" ------- Vundle End ---------
+
 " set UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
