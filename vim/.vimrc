@@ -1,4 +1,4 @@
-" ------- Vundle -------------
+"------ Vundle -------------
 set nocompatible
 filetype off
 set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
@@ -12,8 +12,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'SirVer/ultisnips'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'mhinz/vim-signify'
@@ -54,9 +52,6 @@ set hidden
 " split preferences
 set splitbelow
 set splitright
-" default window size
-set lines=60
-set columns=90
 
 " searching and highlighting 
 set hlsearch
@@ -106,13 +101,15 @@ map <C-l> <C-W><C-l>
 " navigate tabs CTRL + "left"/"right"
 map <C-left> :tabprevious <CR>
 map <C-right> :tabnext <CR>
-" dehighlight with two // 
+"dehighlight with two // 
 nnoremap // :nohl<CR>
 " hide active window
 map <leader>c :hide<CR>
 " close active buffer
 map <leader>q :bd<CR>
-
+" split windows
+map <leader>sv :vsplit<CR>
+map <leader>sh :split<CR>
 " copy/paste from clipboard
 vnoremap cc "+y
 noremap pp "+p
