@@ -68,7 +68,7 @@ au BufNewFile,BufRead *.xdc setf tcl
 
 " color 
 "set background=dark
-colorscheme monokai
+colorscheme molokai
 "
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
@@ -142,7 +142,9 @@ let g:signify_vcs_list = ['hg', 'git']
 map <leader>gt :SignifyToggle<CR>
 map <leader>gr :SignifyRefresh<CR>
 map <leader>gj <plug>(signify-next-hunk)
-map <leader>p :CtrlP<CR>
+map <leader>p :CtrlPBuffer<CR>
+map <leader>pf :CtrlP<CR>
+map <leader>pm :CtrlPMRU<CR>
 
 " ---- Eclim -----"
 let g:EclimCompletionMethod = 'omnifunc'
