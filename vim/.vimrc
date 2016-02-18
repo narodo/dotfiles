@@ -3,9 +3,12 @@ set nocompatible
 filetype off
 set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
 call vundle#rc()
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/vundle'
+Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -64,12 +67,12 @@ syntax on
 au BufNewFile,BufRead *.xdc setf tcl
 
 " color 
-set background=dark
-colorscheme solarized
+"set background=dark
+colorscheme monokai
 "
 " highlight column 80 and 120+
 let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2F3436
+highlight ColorColumn ctermbg=100 guibg=#2F3436
 " set font
 set guifont=Roboto\ Mono\ for\ Powerline\ 10
 
@@ -129,7 +132,7 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 " --- Airline ---"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' 
-let g:airline_theme='solarized'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
