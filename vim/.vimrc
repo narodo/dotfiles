@@ -151,6 +151,6 @@ let g:EclimCompletionMethod = 'omnifunc'
 
 " ---- Pathogen ----
 " execute pathogen plugin management
-execute pathogen#infect()
+" execute pathogen#infect()
 
 
