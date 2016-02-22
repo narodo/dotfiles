@@ -50,6 +50,7 @@ set undolevels=1000
 set history=1000
 set switchbuf=useopen,usetab,newtab
 set showmode
+set relativenumber
 filetype plugin indent on
 set hidden 
 " split preferences
