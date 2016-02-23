@@ -108,9 +108,9 @@ map <C-right> :tabnext <CR>
 "dehighlight with two // 
 nnoremap // :nohl<CR>
 " hide active window
-map <leader>c :hide<CR>
+map <leader>bh :hide<CR>
 " close active buffer
-map <leader>q :bd<CR>
+map <leader>bq :bw<CR>
 " split windows
 map <leader>sv :vsplit<CR>
 map <leader>sh :split<CR>
