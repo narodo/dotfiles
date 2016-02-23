@@ -19,6 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'mhinz/vim-signify'
 Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
 " ------- Vundle End ---------
 
 " set UTF-8 encoding
