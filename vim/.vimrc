@@ -143,9 +143,12 @@ let g:signify_vcs_list = ['hg', 'git']
 map <leader>gt :SignifyToggle<CR>
 map <leader>gr :SignifyRefresh<CR>
 map <leader>gj <plug>(signify-next-hunk)
+
+"---- CtrlP ----"
 map <leader>p :CtrlPBuffer<CR>
 map <leader>pf :CtrlP<CR>
 map <leader>pm :CtrlPMRU<CR>
+let g:ctrlp_show_hidden = 1
 
 " ---- Eclim -----"
 let g:EclimCompletionMethod = 'omnifunc'
