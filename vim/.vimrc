@@ -158,4 +158,6 @@ let g:EclimCompletionMethod = 'omnifunc'
 " execute pathogen plugin management
 " execute pathogen#infect()
 
-
+" --- custom syntax
+au BufRead,BufNewFile *.psm setfiletype psm
+let g:tlist_psm_settings  = 'psm;l:labels'
