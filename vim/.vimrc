@@ -146,7 +146,7 @@ map <leader>gr :SignifyRefresh<CR>
 map <leader>gj <plug>(signify-next-hunk)
 
 "---- CtrlP ----"
-map <leader>p :CtrlPBuffer<CR>
+map <leader>pb :CtrlPBuffer<CR>
 map <leader>pf :CtrlP<CR>
 map <leader>pm :CtrlPMRU<CR>
 let g:ctrlp_show_hidden = 1
