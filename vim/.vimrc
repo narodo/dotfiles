@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
 call vundle#rc()
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai'
 Plugin 'altercation/vim-colors-solarized'
@@ -14,12 +14,14 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'mhinz/vim-signify'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'
+" editor setup and info 
+
 " ------- Vundle End ---------
 
 " set UTF-8 encoding
@@ -33,8 +35,8 @@ set nocompatible
 " indention
 set autoindent
 set smartindent
-"set tabstop=4
-set softtabstop=4
+set tabstop=4
+"set softtabstop=4
 set shiftwidth=4
 set expandtab
 "Change indent style for MAKE files
@@ -120,17 +122,16 @@ map <leader>sh :split<CR>
 vnoremap cc "+y
 noremap pp "+p
 
+" --- Color scheme fixup ---
+" remove background from matched bracket
+hi MatchParen      ctermfg=208  ctermbg=bg cterm=bold
+  
 " --- NERD Tree ---
 let g:nerdtree_tabs_open_on_gui_startup=0
 " toggle NERD Tree
 map <leader>n :NERDTreeTabsToggle<CR>
 " focus on currently opened buffer
 map <leader>r :NERDTreeFind<CR>
-
-"---- UltiSnip ----
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 " --- Airline ---"
 let g:airline#extensions#tabline#enabled = 1
