@@ -9,7 +9,7 @@ Plugin 'sickill/vim-monokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mileszs/ack.vim'
+Plugin 'numkil/ag.nvim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -60,7 +60,10 @@ set hidden
 " split preferences
 set splitbelow
 set splitright
-
+" timeout
+set timeout
+set ttimeout 
+set timeoutlen=300
 " searching and highlighting 
 set hlsearch
 set incsearch
