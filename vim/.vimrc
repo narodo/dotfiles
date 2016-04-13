@@ -1,8 +1,17 @@
+"-- check if we are running vim or neovim --
+  if has('nvim')
+    let s:editor_root=expand("~/.config/nvim")
+  else
+    let s:editor_root=expand("~/.vim")
+  endif
+"
+
 "------ Vundle -------------
 set nocompatible
 filetype off
 set rtp+=~/tools/tools_and_scripts/vim/bundle/vundle/
 call vundle#rc()
+call vundle#rc(s:editor_root . '/bundle')
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai'
@@ -20,8 +29,6 @@ Plugin 'mhinz/vim-signify'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
-" editor setup and info 
-
 " ------- Vundle End ---------
 
 " set UTF-8 encoding
@@ -63,7 +70,7 @@ set splitright
 " timeout
 set timeout
 set ttimeout 
-set timeoutlen=300
+set timeoutlen=600
 " searching and highlighting 
 set hlsearch
 set incsearch
@@ -158,10 +165,6 @@ let g:ctrlp_show_hidden = 1
 
 " ---- Eclim -----"
 let g:EclimCompletionMethod = 'omnifunc'
-
-" ---- Pathogen ----
-" execute pathogen plugin management
-" execute pathogen#infect()
 
 " --- custom syntax
 au BufRead,BufNewFile *.psm setfiletype psm
