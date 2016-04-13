@@ -128,3 +128,20 @@ fi
 if [[ -n $TMUX ]]; then
   export TERM='screen-256color'
 fi
+
+# source FPGA tools
+function set_vivado()
+{
+    source /opt/Xilinx/Vivado/$1/settings64.sh
+}
+
+# cd into firmware path
+function cdplat()
+{
+    cd /home/ina/work/platform
+}
+
+# custom environment
+# add user path
+export PATH=$PATH:$HOME/tools/bin
+export XDG_CONFIG_HOME=$HOME/.config
