@@ -19,7 +19,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'numkil/ag.nvim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -28,7 +28,6 @@ Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'mhinz/vim-signify'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'jiangmiao/auto-pairs'
 " ------- Vundle End ---------
 
 " set UTF-8 encoding
@@ -116,9 +115,14 @@ map <C-j> <C-W><C-j>
 map <C-k> <C-W><C-k>
 map <C-h> <C-W><C-h>
 map <C-l> <C-W><C-l>
+" resize pane
+map <C-Down> <C-W>-
+map <C-Up> <C-W>+
+map <C-Left> <C-W><
+map <C-Right> <C-W>>
 " navigate tabs CTRL + "left"/"right"
-map <C-left> :tabprevious <CR>
-map <C-right> :tabnext <CR>
+"map <C-left> :tabprevious <CR>
+"map <C-right> :tabnext <CR>
 "dehighlight with two // 
 nnoremap // :nohl<CR>
 " hide active window
@@ -169,3 +173,44 @@ let g:EclimCompletionMethod = 'omnifunc'
 " --- custom syntax
 au BufRead,BufNewFile *.psm setfiletype psm
 let g:tlist_psm_settings  = 'psm;l:labels'
+
+" ---- NeoVim specific stuff ---
+if has('nvim')
+    " --- Terminal mode exit mapping ---
+    let g:terminal_scrollback_buffer_size = 100000
+    highlight TermCursor ctermfg=red guifg=red
+    :tnoremap <leader><Esc> <C-\><C-n>
+    " --- Navigate terminal panes the same as normal panes 
+    :tnoremap <C-j> <C-\><C-n><C-W><C-j>
+    :tnoremap <C-k> <C-\><C-n><C-W><C-k>
+    :tnoremap <C-h> <C-\><C-n><C-W><C-h>
+    :tnoremap <C-l> <C-\><C-n><C-W><C-l>
+    " --- always enterh terminal panes in 'insert' mode 
+    :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+    " ---- create FPGA workspace ----
+    function! FPGAwork()
+        "make two columns
+        lcd ~/work/vivado_platform
+        let numcol =2
+        lefta vsp | lcd ~/work/vivado_platform | term
+        file Term-1
+        split     | lcd ~/work/vivado_platform | term
+        file Term-2
+        split     | lcd ~/work/vivado_platform | term
+        file Term-3
+    endfunction
+
+    function! FWwork()
+        "make two columns
+        lcd ~/work/platform
+        let numcol =2
+        lefta vsp | lcd ~/work/platform | term
+        file Term-1
+        split     | lcd ~/work/platform | term
+        file Term-2
+        split     | term minicom -D /dev/ttyUSB0
+        file minicom
+    endfunction
+
+endif 
