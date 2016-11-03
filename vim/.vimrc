@@ -28,6 +28,7 @@ Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'mhinz/vim-signify'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'sirtaj/vim-openscad'
 " ------- Vundle End ---------
 
 " set UTF-8 encoding
@@ -91,10 +92,10 @@ highlight ColorColumn ctermbg=100 guibg=#2F3436
 set guifont=Roboto\ Mono\ for\ Powerline\ 10
 
 " folding
-"set foldcolumn=4
-"set foldmethod=syntax
-"set foldlevelstart=99
-"set t_ut=
+set foldcolumn=4
+set foldmethod=syntax
+set foldlevelstart=99
+set t_ut=
 
 " ----- Custom Key Mappings -----
 " disable handling of ALT keys by GUI
