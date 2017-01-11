@@ -177,9 +177,10 @@ let g:tlist_psm_settings  = 'psm;l:labels'
 
 " ---- NeoVim specific stuff ---
 if has('nvim')
-    " --- Terminal mode exit mapping ---
+    " --- Terminal settings  ---
     let g:terminal_scrollback_buffer_size = 100000
     highlight TermCursor ctermfg=red guifg=red
+    " --- exit terminal mode ---"
     :tnoremap <leader><Esc> <C-\><C-n>
     " --- Navigate terminal panes the same as normal panes 
     :tnoremap <C-j> <C-\><C-n><C-W><C-j>
@@ -187,7 +188,9 @@ if has('nvim')
     :tnoremap <C-h> <C-\><C-n><C-W><C-h>
     :tnoremap <C-l> <C-\><C-n><C-W><C-l>
     " --- always enterh terminal panes in 'insert' mode 
-    :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+    :au BufEnter  * if &buftype == 'terminal' | :startinsert | endif
+    " --- fix terminal fold column issue
+    :au TermOpen * if &buftype == 'terminal' | :set foldcolumn=0 | endif
 
     " ---- create FPGA workspace ----
     function! FPGAwork()
