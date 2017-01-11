@@ -90,6 +90,7 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias lat='ls -lat'
+alias vim=nvim
 #alias la='ls -A'
 #alias l='ls -CF'
 
