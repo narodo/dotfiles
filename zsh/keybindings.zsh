@@ -16,4 +16,3 @@ bindkey  '^p' history-incremental-pattern-search-backward
 bindkey  '^n' history-incremental-pattern-search-forward
 bindkey -M viins '^p' history-incremental-pattern-search-backward
 bindkey -M viins '^n' history-incremental-pattern-search-forward
-

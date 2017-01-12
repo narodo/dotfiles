@@ -1,9 +1,12 @@
+# colors
 if [[ "$EUID" -ne "0" ]]
 then  # if user is not root
 	USER_LEVEL="%F{cyan}"
 else # root!
 	USER_LEVEL="%F{red}"
 fi
+
+VIM_MODE="%F{red}"
 
 # allow functions in the prompt
 setopt PROMPT_SUBST
