@@ -16,3 +16,9 @@ autoload -U ~/.zsh/functions/*(:t)
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
+ 
+# prepend git functions needed for prompt
+preexec_functions+='preexec_update_git_vars'
+precmd_functions+='precmd_update_git_vars'
+chpwd_functions+='chpwd_update_git_vars'
+
