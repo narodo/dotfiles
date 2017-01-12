@@ -1,0 +1,34 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# add custom function path
+fpath=(~/tools/tools_and_scripts/zsh/funcs $fpath)
+
+# vi timeout
+KEYTIMEOUT=20
+
+# no need to type "cd" when changing directories
+setopt AUTO_CD
+
+# replace ... with ../.
+zstyle ':completion:*' special-dirs true
+
+# exit mode with jj
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Incremental 
+bindkey '^R' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+#
+# set up for insert mode too
+bindkey -M viins '^p' history-incremental-pattern-search-backward
+bindkey -M viins '^n' history-incremental-pattern-search-forward
