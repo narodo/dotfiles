@@ -1,0 +1,10 @@
+alias ll="ls -lahF --color=auto"
+alias ls="ls -hF --color=auto"
+alias lat="ls -lathF --color=auto"
+alias lsl="ls -lhF --color=auto"
+alias rmrf="rm -rf"
+alias psef="ps -ef"
+alias mkdir="mkdir -p"
+alias vim="nvim"
+alias ag="ag --color --color-line-number '0;35' --color-match '46;30' --color-path '4;36'"
+alias tree='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_components" --dirsfirst'
