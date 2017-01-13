@@ -1,0 +1,32 @@
+#source ~/.zsh/colors.zsh
+
+function in_hg() {
+  if [[ -d .hg ]] || $(hg summary > /dev/null 2>&1); then
+    echo 1
+  fi
+}
+
+function hg_get_branch_name() {
+  if [ $(in_hg) ]; then
+    echo $(hg branch)
+  fi
+}
+
+function hg_prompt_info {
+  if [ $(in_hg) ]; then
+    local s="${PROMPT_COLOR}[hg:%F{white}"
+    s+="$(hg_get_branch_name)$(hg_status)"
+    s+="${PROMPT_COLOR}]"
+    printf "%s%s" $s
+  fi
+}
+
+function hg_status {
+    local s=""
+    hg status 2> /dev/null | command grep -Eq '^\s*[ACDIM!?L]'
+    if [ $pipestatus[-1] -eq 0 ]; then
+      s+="⚡"
+    fi
+    printf "%s%s" $s
+}
+

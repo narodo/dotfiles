@@ -1,0 +1,5 @@
+update_current_git_vars
+
+#if [[ -d .hg ]] || $(hg summary > /dev/null 2>&1); then
+    update_current_hg_vars
+#fi

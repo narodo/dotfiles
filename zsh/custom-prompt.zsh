@@ -1,13 +1,3 @@
-# colors
-if [[ "$EUID" -ne "0" ]]
-then  # if user is not root
-	USER_LEVEL="%F{cyan}"
-else # root!
-	USER_LEVEL="%F{red}"
-fi
-
-VIM_MODE="%F{red}"
-
 # allow functions in the prompt
 setopt PROMPT_SUBST
 
@@ -21,7 +11,7 @@ typeset -ga precmd_functions
 typeset -ga chpwd_functions
  
 # prepend git functions needed for prompt
-preexec_functions+='preexec_update_git_vars'
-precmd_functions+='precmd_update_git_vars'
-chpwd_functions+='chpwd_update_git_vars'
+preexec_functions+='preexec_update_repo_vars'
+precmd_functions+='precmd_update_repo_vars'
+chpwd_functions+='chpwd_update_repo_vars'
 
