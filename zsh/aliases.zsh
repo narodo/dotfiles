@@ -1,10 +1,18 @@
-alias ll="ls -lahF --color=auto"
-alias ls="ls -hF --color=auto"
+#remove unwanted grml aliases
+unalias acs
+unalias acsh
+unalias acp
+unalias adg
+unalias agi
+unalias ati
+unalias ag
+unalias au
+unalias up
+unalias dbp
+unalias ge
+
+# custom aliases 
 alias lat="ls -lathF --color=auto"
-alias lsl="ls -lhF --color=auto"
-alias rmrf="rm -rf"
-alias psef="ps -ef"
-alias mkdir="mkdir -p"
 alias vim="nvim"
 alias ag="ag --color --color-line-number '0;35' --color-match '46;30' --color-path '4;36'"
 alias tree='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_components" --dirsfirst'

@@ -1,0 +1,5 @@
+# source custom scripts
+source ~/.zsh/keybindings.zsh
+source ~/.zsh/environment.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/custom-prompt.zsh
