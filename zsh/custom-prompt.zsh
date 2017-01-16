@@ -4,11 +4,12 @@ function zle-line-init zle-keymap-select {
 
     if [[ ${KEYMAP} = 'main' ]]; then
         psvar[$psvmodeidx]='i'
+        
     else
         psvar[$psvmodeidx]='n'
     fi
 
-    zle 'reset-prompt'
+    zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select

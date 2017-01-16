@@ -1,10 +1,21 @@
-# source custom scripts
+#--- source plugins ---
+source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# --- source custom scripts ---
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/environment.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/custom-prompt.zsh
 
-# custom functions
+
+#--- fixups ---
+# completion 
+#zstyle ':completion:*' menu select
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+#setopt menu_complete
+
+#--- custom functions ---
 function set_vivado()
 {
     source /opt/Xilinx/Vivado/$1/settings64.sh
