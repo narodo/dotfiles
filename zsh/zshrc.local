@@ -8,12 +8,20 @@ source ~/.zsh/environment.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/custom-prompt.zsh
 
-
-#--- fixups ---
+#--- fix-ups ---
 # completion 
-#zstyle ':completion:*' menu select
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-#setopt menu_complete
+# key fixes
+case $TERM in
+    xterm*) 
+    bindkey "^[[H" beginning-of-line                # Home (xterm)
+    bindkey "^[[F" end-of-line              # End (xterm)
+    bindkey "\e[3~" delete-char                         # Delete
+    bindkey '^[[5~'  history-beginning-search-backward  # Page Up
+    bindkey '^[[6~'  history-beginning-search-forward   # Page Down
+    bindkey '^[[2~' overwrite-mode                      # Insert
+;;
+esac
 
 #--- custom functions ---
 function set_vivado()

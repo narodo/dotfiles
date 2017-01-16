@@ -1,11 +1,11 @@
 # set to vi mode
-bindkey -v 
-
+setopt vi
 # vi timeout
 KEYTIMEOUT=20
 
 # exit mode with jj
 bindkey -M viins 'jj' vi-cmd-mode
+
 
 # ---- history search ----
 # set up for insert mode too
