@@ -7,6 +7,7 @@ source ~/.zsh/keybindings.zsh
 source ~/.zsh/environment.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/custom-prompt.zsh
+source ~/.zsh/syntax-highlighter.zsh
 
 #--- fix-ups ---
 # completion 
