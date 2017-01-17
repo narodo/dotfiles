@@ -1,3 +1,9 @@
+#wrap reset-prompt to avoid messing up menu selection with redraw
+function wrap_reset_prompt {
+    if [ "$WIDGET" != "expand-or-complete" ]; then
+        zle reset-prompt
+    fi
+}
 # update vi mode in prompt
 psvmodeidx='1'
 function zle-line-init zle-keymap-select {
@@ -9,15 +15,15 @@ function zle-line-init zle-keymap-select {
         psvar[$psvmodeidx]='n'
     fi
 
-    zle reset-prompt
+    wrap_reset_prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 # update prompt every 30 seconds to update time
-TMOUT=30
+TMOUT=15
 TRAPALRM() {
-    zle reset-prompt
+    wrap_reset_prompt
 }
 
 
