@@ -6,8 +6,13 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/environment.zsh
 source ~/.zsh/aliases.zsh
-source ~/.zsh/custom-prompt.zsh
 source ~/.zsh/syntax-highlighter.zsh
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    source ~/.zsh/custom-prompt-remote.zsh
+else
+    source ~/.zsh/custom-prompt.zsh
+fi
 
 #--- fix-ups ---
 # completion 
