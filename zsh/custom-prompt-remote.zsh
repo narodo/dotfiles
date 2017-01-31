@@ -35,7 +35,7 @@ grml_theme_add_token [ '%F{white}['
 grml_theme_add_token cmd_prompt ': '
 grml_theme_add_token vi-mode '%1v' '[' ']%f'
 grml_theme_add_token my_time '%D{%H:%M}' '%F{blue}' '%f'
-grml_theme_add_token my_host '%F{red}@%F{green}%m'
+grml_theme_add_token my_host '%F{red}%n@%F{green}%m'
 
 zstyle ':vcs_info:*'              formats       "%F{white}[%s:%F{blue}%b%F{white]"
 zstyle ':vcs_info:*'              actionformats "$AF" "zsh: %r"
