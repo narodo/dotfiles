@@ -83,7 +83,7 @@ else
     set timeout
     set ttimeout 
     set timeoutlen=600
-   
+    set updatetime=300
     " searching and highlighting 
     set hlsearch
     set incsearch
@@ -192,6 +192,21 @@ else
           \ <SID>check_back_space() ? "\<TAB>" :
           \ coc#refresh()
     inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    " Use K to show documentation in preview window.
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
     
     " Remap keys for gotos
     nmap <silent> gd <Plug>(coc-definition)
@@ -202,7 +217,9 @@ else
     " Remap for format selected region
     xmap <leader>f  <Plug>(coc-format-selected)
     nmap <leader>f  <Plug>(coc-format-selected)
-    
+    " Symbol renaming.
+    nmap <leader>rn <Plug>(coc-rename)
+    h
     "---- End  CoC ------"
 
 
