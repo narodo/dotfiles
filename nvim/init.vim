@@ -153,7 +153,7 @@ else
     map <leader>bh :hide<CR>
     
     " close active buffer
-    map <leader>bq :bw<CR>
+    map <leader>bc :bd<CR>
     
     " split windows
     map <leader>sv :vsplit<CR>
