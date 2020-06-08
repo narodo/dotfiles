@@ -219,7 +219,7 @@ else
     nmap <leader>f  <Plug>(coc-format-selected)
     " Symbol renaming.
     nmap <leader>rn <Plug>(coc-rename)
-    h
+    
     "---- End  CoC ------"
 
 
