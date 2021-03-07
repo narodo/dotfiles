@@ -221,6 +221,19 @@ else
     nmap <leader>rn <Plug>(coc-rename)
     
     "---- End  CoC ------"
+    "
 
+    " Debugger
+    " See https://neovim.io/doc/user/nvim_terminal_emulator.html
+    packadd termdebug
+
+    " Map ESC to exit terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    let g:termdebug_wide = 163
+    let g:termdebug_popup = 0
+    
+    nnoremap <silent> <leader>b :Break<CR>
+    nnoremap <silent> <leader>bc :Clear<CR>
+    nnoremap <silent> <leader>c :Continue<CR>
 
 endif
