@@ -35,6 +35,10 @@ else
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'
+    Plug 'dhruvasagar/vim-zoom'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 
     call plug#end()
     " ------- Plug End ---------
@@ -145,15 +149,26 @@ else
     map <C-Up> <C-W>+
     map <C-Left> <C-W><
     map <C-Right> <C-W>>
+
+    " move to window number
+    nnoremap <space>1 1<C-w>w
+    nnoremap <space>2 2<C-w>w
+    nnoremap <space>3 3<C-w>w
+    nnoremap <space>4 4<C-w>w
+    nnoremap <space>5 5<C-w>w
+    nnoremap <space>6 6<C-w>w
+    nnoremap <space>7 7<C-w>w
+    nnoremap <space>8 8<C-w>w
+    nnoremap <space>9 9<C-w>w
     
     "dehighlight with two // 
     nnoremap // :nohl<CR>
     
     " hide active window
-    map <leader>bh :hide<CR>
+    " map <leader>bh :hide<CR>
     
     " close active buffer
-    map <leader>bc :bd<CR>
+    " map <leader>bd :bd<CR>
     
     " split windows
     map <leader>sv :vsplit<CR>
@@ -177,6 +192,16 @@ else
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#hunks#enabled = 1
     let g:airline#extensions#branch#enabled = 1
+    
+    function! WindowNumber(...)
+        let builder = a:1
+        let context = a:2
+        call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
+        return 0
+    endfunction
+
+    call airline#add_statusline_func('WindowNumber')
+    call airline#add_inactive_statusline_func('WindowNumber')
 
     "---- CtrlP ----"
     map <leader>pb :CtrlPBuffer<CR>
@@ -228,12 +253,20 @@ else
     packadd termdebug
 
     " Map ESC to exit terminal mode
-    tnoremap <Esc> <C-\><C-n>
-    let g:termdebug_wide = 163
+    tnoremap <C-q><C-q> <C-\><C-n>
+    let g:termdebug_wide = 164
     let g:termdebug_popup = 0
     
     nnoremap <silent> <leader>b :Break<CR>
     nnoremap <silent> <leader>bc :Clear<CR>
     nnoremap <silent> <leader>c :Continue<CR>
+
+
+    "---- Telescope ----
+    " Find files using Telescope command-line sugar.
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 endif
