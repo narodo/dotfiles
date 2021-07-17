@@ -15,6 +15,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'Asheq/close-buffers.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'folke/which-key.nvim', {'branch': 'main'}
 
 call plug#end()
@@ -141,8 +142,9 @@ nnoremap <space>9 9<C-w>w
 nnoremap // :nohl<CR>
 
 " copy/paste from clipboard
-vnoremap cc "+y
-noremap pp "+p
+set clipboard+=unnamedplus
+"vnoremap cc "+y
+"noremap pp "+p
 
 " Map CTRl-Q CTRL-Q to exit terminal mode
 tnoremap <C-q><C-q> <C-\><C-n>
