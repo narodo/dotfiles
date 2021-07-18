@@ -24,6 +24,7 @@ call plug#end()
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
+set termguicolors
 
 " disable vi compatibility
 set nocompatible
@@ -79,7 +80,7 @@ syntax on
 
 " --- Color scheme  ---
 colorscheme molokai
-
+"
 " remove background from matched bracket
 hi MatchParen      ctermfg=208  ctermbg=bg cterm=bold
 
