@@ -76,7 +76,6 @@ set smartcase
 
 " syntax highlighting
 syntax on
-au BufNewFile,BufRead *.xdc setf tcl
 
 " --- Color scheme  ---
 colorscheme molokai
@@ -174,12 +173,6 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 
-"---- CtrlP ----"
-map <leader>pb :CtrlPBuffer<CR>
-map <leader>pf :CtrlP<CR>
-map <leader>pm :CtrlPMRU<CR>
-let g:ctrlp_show_hidden = 1
-
 "----   CoC    ------"
 " Use tab for trigger completion
 inoremap <silent><expr> <TAB>
@@ -248,4 +241,3 @@ require("which-key").setup {
     -- refer to the configuration section below
 }
 EOF
-
