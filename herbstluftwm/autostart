@@ -21,7 +21,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn ${TERMINAL:-xterm} # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Return spawn ${TERMINAL:-gnome-terminal} # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-Up    focus up
 hc keybind $Mod-Right focus right
 hc keybind $Mod-h     focus left
@@ -80,8 +80,6 @@ hc keybind $Mod-r remove
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
-hc keybind $Mod-Shift-f set_layout max
-hc keybind $Mod-Shift-v set_layout vertical
 
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
@@ -168,3 +166,8 @@ done
 
 #custom
 hc keybind $Mod-n spawn dmenu_run_hlwm
+hc keybind $Mod-Shift-f set_layout max
+hc keybind $Mod-Shift-v set_layout vertical
+
+source $HOME/.config/herbstluftwm/func_keys.sh
+

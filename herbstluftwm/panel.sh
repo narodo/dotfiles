@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+source $HOME/.config/herbstluftwm/get_battery.sh
+source $HOME/.config/herbstluftwm/get_volume.sh
+source $HOME/.config/herbstluftwm/get_wifi.sh
+
 quote() {
 	local q="$(printf '%q ' "$@")"
 	printf '%s' "${q% }"
@@ -58,24 +62,6 @@ else
     }
 fi
 
-
-
-# Get battery
-GetBattery () {
-    percent=$(acpi | grep -oE '[0-9]{1,3}%')
-    if [ "${percent::-1}" -lt "15" ]; then
-        battery_color="^fg(#b10e03)"
-    else
-        battery_color="^fg()"
-    fi
-    discharging=$(acpi | grep -oE 'Discharging')
-    if [ "$discharging" == "" ]; then
-        battery_color="^fg(#8cb11e)"
-    fi
-    battery="^bg()^fg()Battery: $battery_color$percent"
-    echo "battery: 50%"
-}
-
 hc pad $monitor $panel_height
 
 {
@@ -90,7 +76,9 @@ hc pad $monitor $panel_height
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
         date +$'date\t^fg(#efefef)%H:%M^fg(#909090), %Y-%m-^fg(#efefef)%d'
-        echo -e "battery\t, BAT:10%"
+        echo -e "battery\t$(GetBattery)"
+        echo -e "volume\t$(GetVolume)"
+        echo -e "wifi\t$(GetWifi)"
         sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
@@ -102,6 +90,7 @@ hc pad $monitor $panel_height
     date=""
     windowtitle=""
     battery=""
+    volume=""
     while true ; do
 
         ### Output ###
@@ -140,7 +129,7 @@ hc pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $battery $date $separator"
+        right="$separator^bg() $volume $separator^bg() $wifi $separator^bg() $battery $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")
@@ -164,11 +153,17 @@ hc pad $monitor $panel_height
                 IFS=$'\t' read -ra tags <<< "$(hc tag_status $monitor)"
                 ;;
             battery)
-                battery="${cmd[1]}"
+                battery="${cmd[@]:1}"
                 ;;
             date)
                 #echo "resetting date" >&2
                 date="${cmd[@]:1}"
+                ;;
+            volume)
+                volume="${cmd[@]:1}"
+                ;;
+            wifi)
+                wifi="${cmd[@]:1}"
                 ;;
             quit_panel)
                 exit
