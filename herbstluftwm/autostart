@@ -22,7 +22,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Escape spawn i3lock-fancy
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+hc keybind $Mod-q close
 hc keybind $Mod-Return spawn "${TERMINAL:-gnome-terminal}" # use your $TERMINAL with xterm as fallback
 
 # basic movement in tiling and floating mode
@@ -192,6 +192,11 @@ done
 hc keybind $Mod-n spawn dmenu_run_hlwm
 hc keybind $Mod-m set_layout max
 hc keybind $Mod-v set_layout vertical
+hc keybind $Mod-b spawn google-chrome 
+hc keybind $Mod-e spawn gnome-terminal -- $HOME/myapps/bin/nvim 
+hc keybind $Mod-t spawn gnome-terminal -- tmux
+
+hc rule class="Spotify" tag=9
 
 source $HOME/.config/herbstluftwm/func_keys.sh
 
