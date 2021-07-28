@@ -227,6 +227,7 @@ nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>flb :BLines<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fg :Rg<CR>
+nnoremap <leader>fm :History<CR>
 
 
 lua << EOF
