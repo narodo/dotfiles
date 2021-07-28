@@ -199,4 +199,4 @@ hc keybind $Mod-t spawn gnome-terminal -- tmux
 hc rule class="Spotify" tag=9
 
 source $HOME/.config/herbstluftwm/func_keys.sh
-
+source $HOME/.config/herbstluftwm/autostart_apps.sh
