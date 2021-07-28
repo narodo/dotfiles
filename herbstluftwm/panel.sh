@@ -75,13 +75,23 @@ hc pad $monitor $panel_height
     #   date    ^fg(#efefef)18:33^fg(#909090), 2013-10-^fg(#efefef)29
 
     #mpc idleloop player &
+    slot_5s=5
     while true ; do
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
         date +$'date\t^fg(#efefef)%H:%M^fg(#909090), %Y-%m-^fg(#efefef)%d'
-        echo -e "battery\t$(GetBattery)"
         echo -e "volume\t$(GetVolume)"
-        echo -e "wifi\t$(GetWifi)"
+
+        # 5s timeslot
+        if [ $slot_5s -eq "5" ]
+        then
+            echo -e "battery\t$(GetBattery)"
+            echo -e "wifi\t$(GetWifi)"
+            slot_5s=0
+        else 
+            ((slot_5s=slot_5s+1))
+        fi
+
         sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
