@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -79,7 +80,7 @@ set smartcase
 syntax on
 
 " --- Color scheme  ---
-colorscheme molokai
+colorscheme gruvbox
 "
 " remove background from matched bracket
 hi MatchParen      ctermfg=208  ctermbg=bg cterm=bold
