@@ -112,6 +112,7 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle 1
 hc keybind $Mod-Shift-c cycle -1
 hc keybind $Mod-i jumpto urgent
+hc set swap_monitors_to_get_tag 0
 
 # theme
 hc attr theme.tiling.reset 1
