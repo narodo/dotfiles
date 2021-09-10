@@ -65,7 +65,7 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # tags
-tag_names=(1-web {2..8} 9-spotify )
+tag_names=(1-dev 2-web {3..7} 8-slack 9-priv )
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -198,7 +198,5 @@ hc keybind $Mod-b spawn google-chrome
 hc keybind $Mod-e spawn gnome-terminal -- $HOME/myapps/bin/nvim 
 hc keybind $Mod-t spawn gnome-terminal -- tmux
 
-hc rule class="Spotify" tag=9
-
-source $HOME/.config/herbstluftwm/func_keys.sh
-source $HOME/.config/herbstluftwm/autostart_apps.sh
+source $HOME/tools/bin/setup_monitors.sh
+source $HOME/tools/bin/herbstluftwm_autostart_apps.sh

@@ -2,7 +2,7 @@ Packages to install with apt:
 
 -- List of packages to install --
 
-sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux xsel 
+sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux pavucontrol pamix xsel gnome-shell-extension-prefs cmake
 
 -- Gnome Terminal
   
@@ -17,6 +17,10 @@ sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-pow
   Switch off terminal bell
     Preferences -> Text
 
+  Turn off title bar
+    sudo apt install gnome-shell-extension-pixelsaver
+    gnome-extensions enable pixel-saver@deadalnix.me
+    gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 -- Create custom bin folder --
 
@@ -97,7 +101,36 @@ This will also set zsh to default shell if required.
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     -> open Tmux and install plugins with <prefix> + I 
     
+    
+-- Herbstluft -- 
+
+  Install from source:
+    see  https://herbstluftwm.org/tutorial.html
+    
+    cd ~/tools
+    git clone https://github.com/herbstluftwm/herbstluftwm
+    cd herbstluft
+    git checkout v0.9.3 # or other version
+    
+   Install dependencies:
+    sudo apt install dmenu dzen2 asciidoc x11-xserver-utils libx11-dev libxrandr-dev libxft-dev
+
+    
+   Build:
+     mkdir build
+     cmake ..
+     make 
+     sudo make install
      
-  
+   Link Herbstluft config:
+     cd ~ 
+     ln -s -r tools/dotfiles/herbstluftwm .config/herbstluft
+    
+    
+    
+
+
+
+
     
     
