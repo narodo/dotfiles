@@ -1,0 +1,103 @@
+Packages to install with apt:
+
+-- List of packages to install --
+
+sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux xsel 
+
+-- Gnome Terminal
+  
+  Change default shell in gnome terminal
+    Preferences -> Command -> "Run a custom command"
+    
+  Change colour scheme
+    Preferences -> Color
+       Built-in scheme: Solarized dark
+       Palette: Solarized
+  
+  Switch off terminal bell
+    Preferences -> Text
+
+
+-- Create custom bin folder --
+
+  Setup:
+     mkdir -p ~/tools/bin
+     add ~/tools/bin to PATH
+
+
+-- NVIM --
+
+Download AppImage from NVIM release page: https://github.com/neovim/neovim/releases
+
+* Download NVIM
+    mv ~/Downloads/nvim.appimage ~/tools/nvim-<release number>.appimage
+    cd ~/tools
+    ln -s -r nvim-0.5.0.appimage ./bin/nvim
+    chmod +x ./bin/nvim
+
+* Link into .config dir
+    cd ~/.config 
+    ln -s ~/tools/dotfiles/nvim nvim
+
+* update Plugins
+  start NVIM
+    :PlugInstall
+
+* install nodejs  > 12 for coc
+    cd ~/tools
+    curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh
+    chmod +x install_nvm.sh
+    ./install_nvm.sh
+    rm ./install_nvm.sh
+
+  Install node with nvm and link to bin dir
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+    nvm install --lts
+    ln -s `which node` ~/tools/bin/node
+   
+    Note: 
+    	If version does not point to node correctly the warning:
+    	    Error: N/A: version "N/A -> N/A" is not yet installed 
+    	might pop when starting shell
+    	fix with
+      	  nvm alias default node
+
+-- ZSH --
+
+* install oh-my-zsh
+see: https://github.com/ohmyzsh/ohmyzsh
+This will also set zsh to default shell if required.
+
+  Commands:
+    cd ~/tools
+    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    chmod +x install.sh
+    ./install.sh
+    rm install.sh
+  
+  Link own zshrc:
+    cd ~
+    rm .zshrc 
+    ln -s ~/tools/dotfiles/zsh/zshrc .zshrc
+  
+  Install plugins:
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    
+
+-- TMUX --
+    
+  Link Tmux config:
+    cd ~
+    ln -s ./tools/dotfiles/tmux/tmux.conf .tmux.conf	
+      
+  Install plugins:
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    -> open Tmux and install plugins with <prefix> + I 
+    
+     
+  
+    
+    
