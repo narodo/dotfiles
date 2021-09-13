@@ -19,7 +19,7 @@ hc keyunbind --all
 Mod=Mod4   # Use the super key as the main modifier
 
 
-hc keybind $Mod-Escape spawn i3lock-fancy
+hc keybind $Mod-Escape spawn i3lock -c 000000
 hc keybind $Mod-Control-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-q close
@@ -191,7 +191,7 @@ done
 
 
 #custom
-hc keybind $Mod-n spawn dmenu_run_hlwm
+hc keybind $Mod-n spawn dmenu_run
 hc keybind $Mod-m set_layout max
 hc keybind $Mod-v set_layout vertical
 hc keybind $Mod-b spawn google-chrome 
