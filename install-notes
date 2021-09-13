@@ -122,6 +122,9 @@ This will also set zsh to default shell if required.
      make 
      sudo make install
      
+   Link correct Herbstluft panel to panel.sh
+     ln -s panel_desktop.sh panel.sh
+
    Link Herbstluft config:
      cd ~ 
      ln -s -r tools/dotfiles/herbstluftwm .config/herbstluft
