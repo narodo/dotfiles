@@ -127,7 +127,10 @@ This will also set zsh to default shell if required.
      ln -s -r tools/dotfiles/herbstluftwm .config/herbstluft
     
     
-    
+-- Local Fixups --
+
+    zsh:
+      link fixup script to ~/.zshrc.fixup 
 
 
 
