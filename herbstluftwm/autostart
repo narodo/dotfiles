@@ -200,3 +200,4 @@ hc keybind $Mod-t spawn gnome-terminal -- tmux
 
 source $HOME/tools/bin/setup_monitors.sh
 source $HOME/tools/bin/herbstluftwm_autostart_apps.sh
+source $HOME/tools/dotfiles/herbstluftwm/func_keys.sh
