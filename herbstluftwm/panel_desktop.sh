@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 source $HOME/.config/herbstluftwm/get_volume.sh
+source $HOME/.config/herbstluftwm/get_spotify_status.sh
+
+
+if command -v spotifycli &> /dev/null
+then
+    spotifycli_exist=1
+else 
+    spotifycli_exist=0
+fi
 
 quote() {
 	local q="$(printf '%q ' "$@")"
@@ -78,12 +87,17 @@ hc pad $monitor $panel_height
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
         date +$'date\t^fg(#efefef)%H:%M^fg(#909090), %Y-%m-^fg(#efefef)%d'
+
         echo -e "volume\t$(GetVolume)"
 
         # 5s timeslot
         if [ $slot_5s -eq "5" ]
         then
+        
+            echo -e "spotify_status\t$(GetSpotifyStatus)"
+
             slot_5s=0
+
         else 
             ((slot_5s=slot_5s+1))
         fi
@@ -138,7 +152,7 @@ hc pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $volume $separator^bg() $date $separator"
+        right="$separator^bg()$spotify_status $separator^bg() $volume $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")
@@ -167,6 +181,9 @@ hc pad $monitor $panel_height
                 ;;
             volume)
                 volume="${cmd[@]:1}"
+                ;;
+            spotify_status)
+                spotify_status="${cmd[@]:1}"
                 ;;
             quit_panel)
                 exit

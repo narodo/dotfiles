@@ -136,7 +136,10 @@ This will also set zsh to default shell if required.
       link fixup script to ~/.zshrc.fixup 
 
 
+-- Spotfiy  client --
 
+    see https://github.com/pwittchen/spotify-cli-linux
 
-    
+    Install:
+        pip install spotify-cli-linux --upgrade
     
