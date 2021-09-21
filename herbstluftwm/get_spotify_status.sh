@@ -14,8 +14,20 @@ GetSpotifyStatus () {
 
     if [ $spotifycli_exist -eq 1 ] 
     then
-        #spotify_status="$(spotifycli --playbackstatus) $(spotifycli --statusshort)"
-        spotify_status="$(spotifycli --statusshort)"
+
+        spotify_playback_status="$(spotifycli --playbackstatus)"
+
+        # something funky going on when using the unicode character
+        if [ $spotify_playback_status = "▮▮" ] 
+        then
+            playchar="||"
+        else
+            playchar=">"
+        fi
+
+        spotify_song="$(spotifycli --statusshort)"
+        spotify_status="$playchar-$spotify_song"
+        #spotify_status="$(spotifycli --statusshort)"
         echo "^bg()^fg() $spotify_status"
     fi
 }

@@ -3,14 +3,6 @@
 source $HOME/.config/herbstluftwm/get_volume.sh
 source $HOME/.config/herbstluftwm/get_spotify_status.sh
 
-
-if command -v spotifycli &> /dev/null
-then
-    spotifycli_exist=1
-else 
-    spotifycli_exist=0
-fi
-
 quote() {
 	local q="$(printf '%q ' "$@")"
 	printf '%s' "${q% }"
