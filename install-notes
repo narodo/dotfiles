@@ -2,7 +2,7 @@ Packages to install with apt:
 
 -- List of packages to install --
 
-sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux pavucontrol pamix xsel gnome-shell-extension-prefs cmake
+sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux pavucontrol pamix xsel gnome-shell-extension-prefs cmake ripgrep
 
 -- Gnome Terminal
   
