@@ -236,7 +236,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fg <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>fj <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 lua << EOF
 require("which-key").setup {
