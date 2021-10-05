@@ -15,8 +15,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Asheq/close-buffers.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'folke/which-key.nvim', {'branch': 'main'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 
 call plug#end()
 " ------- Plug End ---------
@@ -222,13 +224,19 @@ nnoremap <silent> <leader>bc :Clear<CR>
 nnoremap <silent> <leader>c :Continue<CR>
 
 "---- FZF ----
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>flb :BLines<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fg :Rg<CR>
-nnoremap <leader>fm :History<CR>
+"nnoremap <leader>ff :Files<CR>
+"nnoremap <leader>fl :Lines<CR>
+"nnoremap <leader>flb :BLines<CR>
+"nnoremap <leader>fb :Buffers<CR>
+"nnoremap <leader>fg :Rg<CR>
+"nnoremap <leader>fm :History<CR>
 
+"---- Telescope ----
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fg <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 lua << EOF
 require("which-key").setup {
@@ -236,5 +244,50 @@ require("which-key").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
+}
+EOF
+
+
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    path_display = {"smart"},
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-h>"] = "which_key"
+      }
+    }
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+    buffers = {
+      theme = "dropdown",
+    },
+
+    live_grep = {
+      theme = "dropdown",
+    },
+    find_files = {
+      theme = "dropdown",
+    }
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+  }
 }
 EOF
