@@ -6,8 +6,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -159,23 +159,23 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<CR>
 
 " --- Airline ---"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='dark'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_theme='dark'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#hunks#enabled = 1
+"let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
 
-function! WindowNumber(...)
-    let builder = a:1
-    let context = a:2
-    call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
-    return 0
-endfunction
+"function! WindowNumber(...)
+    "let builder = a:1
+    "let context = a:2
+    "call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
+    "return 0
+"endfunction
 
-call airline#add_statusline_func('WindowNumber')
-call airline#add_inactive_statusline_func('WindowNumber')
+"call airline#add_statusline_func('WindowNumber')
+"call airline#add_inactive_statusline_func('WindowNumber')
 
 "----   CoC    ------"
 " Use tab for trigger completion
@@ -222,6 +222,22 @@ let g:termdebug_popup = 0
 nnoremap <silent> <leader>b :Break<CR>
 nnoremap <silent> <leader>bc :Clear<CR>
 nnoremap <silent> <leader>c :Continue<CR>
+
+
+"---- Statusline ----
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 "---- FZF ----
 "nnoremap <leader>ff :Files<CR>
