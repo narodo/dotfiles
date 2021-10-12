@@ -35,11 +35,11 @@ set nocompatible
 " indention
 set autoindent
 set smartindent
-set tabstop=4
+set tabstop=8
 
 "set softtabstop=4
-set shiftwidth=4
-set expandtab
+set shiftwidth=8
+"set expandtab
 "
 "Change indent style for MAKE files
 :autocmd FileType make set noexpandtab
