@@ -16,7 +16,9 @@ Plug 'Asheq/close-buffers.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'folke/which-key.nvim', {'branch': 'main'}
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ThePrimeagen/harpoon'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 
