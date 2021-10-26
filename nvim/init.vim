@@ -115,9 +115,9 @@ set winaltkeys=no
 inoremap jj <Esc>
 
 " navigate buffers with  <leader> + h/j/k/l
-map <leader>h :bprevious<CR>
-map <leader>l :bnext<CR>
-map <leader>j :b#<CR>
+"map <leader>h :bprevious<CR>
+"map <leader>l :bnext<CR>
+"map <leader>j :b#<CR>
 
 " navigate splits with CTRL + h/j/k/l
 map <C-j> <C-W><C-j>
@@ -130,6 +130,10 @@ map <C-Down> <C-W>-
 map <C-Up> <C-W>+
 map <C-Left> <C-W><
 map <C-Right> <C-W>>
+
+" navigate quickfix
+map <C-n> :cnext<CR>
+map <C-p> :cprev<CR>
 
 "dehighlight with two //
 nnoremap // :nohl<CR>
@@ -298,3 +302,10 @@ require('telescope').setup{
   }
 }
 EOF
+" harpoon 
+nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>h4 :lua require("harpoon.ui").nav_file(4)<CR>
