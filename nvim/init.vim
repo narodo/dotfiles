@@ -19,7 +19,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ThePrimeagen/harpoon'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'weeman1337/telescope-live-grep-raw.nvim', {'branch': 'main'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 
 call plug#end()
@@ -248,6 +249,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fj <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>fr :lua require("telescope").extensions.live_grep_raw.live_grep_raw()<cr>
 
 lua << EOF
 require("which-key").setup {
@@ -309,3 +311,5 @@ nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <leader>h4 :lua require("harpoon.ui").nav_file(4)<CR>
+
+
