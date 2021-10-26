@@ -87,15 +87,15 @@ syntax on
 colorscheme gruvbox
 "
 " remove background from matched bracket
-hi MatchParen      ctermfg=208  ctermbg=bg cterm=bold
+"hi MatchParen      ctermfg=208  ctermbg=bg cterm=bold
 
 " highlight column 80 and 120+
-let &colorcolumn="80"
-highlight ColorColumn ctermbg=100 guibg=#2F3436
+"let &colorcolumn="80"
+"highlight ColorColumn ctermbg=100 guibg=#2F3436
 "
 " set font
-set guifont=Roboto\ Mono\ for\ Powerline\ 10
-
+"set guifont=Roboto\ Mono\ for\ Powerline\ 10
+"
 " --- Color scheme end  ---
 "
 " folding
@@ -130,17 +130,6 @@ map <C-Down> <C-W>-
 map <C-Up> <C-W>+
 map <C-Left> <C-W><
 map <C-Right> <C-W>>
-
-" move to window number
-nnoremap <space>1 1<C-w>w
-nnoremap <space>2 2<C-w>w
-nnoremap <space>3 3<C-w>w
-nnoremap <space>4 4<C-w>w
-nnoremap <space>5 5<C-w>w
-nnoremap <space>6 6<C-w>w
-nnoremap <space>7 7<C-w>w
-nnoremap <space>8 8<C-w>w
-nnoremap <space>9 9<C-w>w
 
 "dehighlight with two //
 nnoremap // :nohl<CR>
