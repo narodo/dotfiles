@@ -42,10 +42,16 @@ set tabstop=8
 
 "set softtabstop=4
 set shiftwidth=8
-"set expandtab
+set expandtab
 "
 "Change indent style for MAKE files
-:autocmd FileType make set noexpandtab
+"set list
+"
+"Change indent style for MAKE files and make c source kernel compatible
+autocmd FileType make set noexpandtab
+autocmd FileType c    set noexpandtab shiftwidth=8 tabstop=8
+autocmd FileType cpp  set noexpandtab shiftwidth=8 tabstop=8
+autocmd FileType dts  setlocal noexpandtab shiftwidth=8 tabstop=8
 
 " editor setup and info
 set noerrorbells visualbell t_vb=
@@ -219,21 +225,20 @@ nnoremap <silent> <leader>b :Break<CR>
 nnoremap <silent> <leader>bc :Clear<CR>
 nnoremap <silent> <leader>c :Continue<CR>
 
-
-"---- Statusline ----
+""---- Statusline ----
 set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
+set statusline+=[%n]
+set statusline+=\ %<%F
+set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
-set statusline+=\ %l:%c
+set statusline+=\ %l:%v(%c)
 set statusline+=\ 
+set statusline+=[%{getbufvar(bufnr('%'),'&mod')?'modified':'saved'}] 
 
 "---- FZF ----
 "nnoremap <leader>ff :Files<CR>
@@ -249,6 +254,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fj <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fr :lua require("telescope").extensions.live_grep_raw.live_grep_raw()<cr>
 
 lua << EOF
@@ -311,5 +317,3 @@ nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <leader>h4 :lua require("harpoon.ui").nav_file(4)<CR>
-
-
