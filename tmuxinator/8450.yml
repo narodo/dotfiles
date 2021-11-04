@@ -1,0 +1,26 @@
+name: 8450
+root: ~/Dev/8450/qcom-8450
+
+windows:
+  - source:
+      layout: 5fe8,254x72,0,0{127x72,0,0[127x36,0,0,0,127x35,0,37,3],126x72,128,0,1}
+      panes:
+        - #empty  
+        - #empty  
+        - nvim
+  - device:
+      layout: 5fe8,254x72,0,0{127x72,0,0[127x36,0,0,0,127x35,0,37,3],126x72,128,0,1}
+      panes:
+        - nrf_shell:
+            - cd ..
+            - source ./nrf_shell/venv/bin/activate 
+            - ./nrf_shell/nrf_shell.py --uart
+        - #empty  
+        - minicom -D /dev/ttyUSB0
+  - scratch:
+      layout: even-horizontal
+      panes:
+        - #empty
+        - #empty
+
+
