@@ -21,6 +21,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'weeman1337/telescope-live-grep-raw.nvim', {'branch': 'main'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'preservim/vimux'
 "Plug 'junegunn/fzf.vim'
 
 call plug#end()
@@ -310,6 +311,7 @@ require('telescope').setup{
   }
 }
 EOF
+
 " harpoon 
 nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -317,3 +319,9 @@ nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <leader>h4 :lua require("harpoon.ui").nav_file(4)<CR>
+
+
+" vimux
+map <leader>tr :VimuxPromptCommand<CR>
+map <leader>tl :VimuxRunLastCommand<CR>
+map <leader>ti :VimuxInspectRunner<CR>
