@@ -81,10 +81,14 @@ This will also set zsh to default shell if required.
     ./install.sh
     rm install.sh
   
-  Link own zshrc:
+  Link own zshrc and completions:
     cd ~
     rm .zshrc 
     ln -s ~/tools/dotfiles/zsh/zshrc .zshrc
+    rm ~/.oh-my-zsh/completions
+    ln -s ~/tool/dotfiles/zsh/completions ~/.oh-my-zsh/completions
+    compinit
+
   
   Install plugins:
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
