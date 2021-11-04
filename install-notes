@@ -2,7 +2,7 @@ Packages to install with apt:
 
 -- List of packages to install --
 
-sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux pavucontrol pamix xsel gnome-shell-extension-prefs cmake ripgrep
+sudo apt install git vim build-essential tree rgrep mc zsh clangd curl fonts-powerline fzf zsh-autosuggestions zsh-syntax-highlighting tmux pavucontrol pamix xsel gnome-shell-extension-prefs cmake ripgrep tmuxinator
 
 -- Gnome Terminal
   
@@ -101,6 +101,12 @@ This will also set zsh to default shell if required.
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     -> open Tmux and install plugins with <prefix> + I 
     
+-- TMUXINATOR --
+
+  Link Tmuxinator config:
+    cd ~
+    ln -rs ./tools/dotfiles/tmuxinator ./config/tmuxinator
+
     
 -- Herbstluft -- 
 

@@ -1,0 +1,12 @@
+name: dotfiles
+root: ~/tools/dotfiles
+
+startup_pane: 2
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - #empty  
+        - nvim
+
