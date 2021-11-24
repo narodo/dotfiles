@@ -293,6 +293,12 @@ require('telescope').setup{
     -- builtin picker
     buffers = {
       theme = "dropdown",
+      sort_lastused=true,
+      mappings = {
+              i= {
+                ["<c-d>"]="delete_buffer",
+              }
+      }
     },
 
     live_grep = {
