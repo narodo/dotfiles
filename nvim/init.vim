@@ -125,7 +125,7 @@ inoremap jj <Esc>
 " navigate buffers with  <leader> + h/j/k/l
 "map <leader>h :bprevious<CR>
 "map <leader>l :bnext<CR>
-"map <leader>j :b#<CR>
+map <leader>j :b#<CR>
 
 " navigate splits with CTRL + h/j/k/l
 map <C-j> <C-W><C-j>
