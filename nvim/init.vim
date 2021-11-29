@@ -126,6 +126,7 @@ inoremap jj <Esc>
 "map <leader>h :bprevious<CR>
 "map <leader>l :bnext<CR>
 map <leader>j :b#<CR>
+map <leader>c :close<CR>
 
 " navigate splits with CTRL + h/j/k/l
 map <C-j> <C-W><C-j>
@@ -222,9 +223,9 @@ packadd termdebug
 let g:termdebug_wide = 164
 let g:termdebug_popup = 0
 
-nnoremap <silent> <leader>b :Break<CR>
-nnoremap <silent> <leader>bc :Clear<CR>
-nnoremap <silent> <leader>c :Continue<CR>
+nnoremap <silent> <leader>db :Break<CR>
+nnoremap <silent> <leader>dbc :Clear<CR>
+nnoremap <silent> <leader>dc :Continue<CR>
 
 ""---- Statusline ----
 set statusline=
