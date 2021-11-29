@@ -18,8 +18,8 @@ Plug 'folke/which-key.nvim', {'branch': 'main'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-rg.nvim'
 Plug 'ThePrimeagen/harpoon'
-Plug 'weeman1337/telescope-live-grep-raw.nvim', {'branch': 'main'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/vimux'
 "Plug 'junegunn/fzf.vim'
