@@ -86,7 +86,7 @@ set ignorecase
 set smartcase
 
 " delete trailing white spaces
-:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+:nnoremap <silent> <F12> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " syntax highlighting
 syntax on
@@ -223,9 +223,14 @@ packadd termdebug
 let g:termdebug_wide = 164
 let g:termdebug_popup = 0
 
-nnoremap <silent> <leader>db :Break<CR>
-nnoremap <silent> <leader>dbc :Clear<CR>
-nnoremap <silent> <leader>dc :Continue<CR>
+nnoremap <F3>  :Evaluate<CR>
+nnoremap <F4>  :call TermDebugSendCommand('stepi')<CR>
+nnoremap <F5>  :Step<CR>
+nnoremap <F6>  :Over<CR>
+nnoremap <F7>  :Finish<CR>
+nnoremap <F8>  :Continue<CR>
+nnoremap <F9>  :Break<CR>
+nnoremap <F10> :Clear<CR>
 
 ""---- Statusline ----
 set statusline=
