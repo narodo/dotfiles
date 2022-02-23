@@ -22,6 +22,7 @@ Plug 'nvim-telescope/telescope-rg.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/vimux'
+Plug 'jremmen/vim-ripgrep'
 "Plug 'junegunn/fzf.vim'
 
 call plug#end()
@@ -262,6 +263,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fj <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fq <cmd>Telescope quickfix<cr>
 nnoremap <leader>fr :lua require("telescope").extensions.live_grep_raw.live_grep_raw()<cr>
 
 lua << EOF
