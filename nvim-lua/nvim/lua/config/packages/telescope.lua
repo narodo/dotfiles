@@ -9,9 +9,7 @@ function M.setup()
             borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
             layout_strategy = "vertical",
             layout_config = {
-                height = 0.90,
                 prompt_position = "top",
-                preview_height = 15,
             },
             prompt_prefix = "> ",
             sorting_strategy = "ascending",
