@@ -67,7 +67,8 @@ function M.setup()
         -- Telescope
         use {
             "nvim-telescope/telescope.nvim",
-            opt = true,
+            opt = false,
+            disable = false, 
             config = function()
                 require("config.packages.telescope").setup()
             end,
@@ -81,6 +82,8 @@ function M.setup()
             requires = {
                 "nvim-lua/popup.nvim",
                 "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope-project.nvim",
+                "nvim-telescope/telescope-file-browser.nvim",
             },
         }
 
