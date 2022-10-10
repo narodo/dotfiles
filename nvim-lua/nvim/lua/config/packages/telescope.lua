@@ -6,7 +6,6 @@ function M.setup()
 
     telescope.setup {
         defaults = {
-            borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
             layout_strategy = "vertical",
             layout_config = {
                 prompt_position = "top",
