@@ -128,6 +128,13 @@ function M.setup()
             end,
         }
 
+        --Autopair
+        use {
+            "windwp/nvim-autopairs",
+            config = function() require("nvim-autopairs").setup {} end,
+        }
+
+        -- LSP 
         use {
             'VonHeikemen/lsp-zero.nvim',
             config = function()
