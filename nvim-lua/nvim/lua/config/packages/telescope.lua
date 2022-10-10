@@ -46,6 +46,7 @@ function M.setup()
             -- Your extension configuration goes here:
             project = {
                 theme = "dropdown",
+                explicit_set_cwd = true,
             },
             file_browser = {
                 grouped = true,

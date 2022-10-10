@@ -82,7 +82,8 @@ function M.setup()
             requires = {
                 "nvim-lua/popup.nvim",
                 "nvim-lua/plenary.nvim",
-                "nvim-telescope/telescope-project.nvim",
+                -- "nvim-telescope/telescope-project.nvim",
+                {"narodo/telescope-project.nvim", branch = 'feature/make-cwd-change-optional'},
                 "nvim-telescope/telescope-file-browser.nvim",
             },
         }
