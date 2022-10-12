@@ -5,22 +5,14 @@ function M.setup()
     require("dapui").setup();
 
     local dap = require("dap");
-    --dap.adapters.codelldb = {
-      --type = 'server',
-      --host = '127.0.0.1',
-      --port = 13000 -- 💀 Use the port printed out or specified with `--port`
-    --}
 
-    local dap = require('dap')
     dap.adapters.cppdbg = {
       id = 'cppdbg',
       type = 'executable',
-      command = '/home/naro/.config/nvim-beginner/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+      command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/OpenDebugAD7",
 
     }
 
-
-    local dap = require('dap')
     dap.configurations.cppdbg = {
       {
         name = "Launch file",
@@ -29,7 +21,7 @@ function M.setup()
         program = function()
           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = '${workspaceFolder}',
+        cwd = '${workspacseFolder}',
         stopAtEntry = true,
       },
       {
@@ -46,9 +38,8 @@ function M.setup()
       },
     }
 
-
     dap.configurations.c = dap.configurations.cppdbg
-    dap.configurations.cpp = dap.configurations.cppdbg
+    dap.configurations.cpp = dap.configurations.cppdg
     dap.configurations.rust = dap.configurations.cppdbg
 
 end
