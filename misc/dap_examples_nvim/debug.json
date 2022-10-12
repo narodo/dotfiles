@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gdbserver",
+            "type": "cppdbg",
+            "request": "launch",
+            "program" : "${workspaceFolder}/target/xtensa-esp32s2-espidf/debug/hello-world",
+            "MIMode" : "gdb",
+            "cwd": "${workspaceFolder}",
+            "environment" : [],
+            "externalConsole": false,
+            "miDebuggerPath" : "/home/naro/.espressif/tools/xtensa-esp32s2-elf-gcc/8_4_0-esp-2021r2-patch3-x86_64-unknown-linux-gnu/bin/xtensa-esp32s2-elf-gdb",
+            "miDebuggerArgs": " -ex 'handle all print nostop noignore'",
+            "stopAtEntry": true,
+            "setupCommands": [
+                          { "text": "-interpreter-exec console \"target remote localhost:3333 \"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"set confirm off \"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"set logging on \"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"monitor adapter_khz 5000\"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"monitor reset init\"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"file  ${workspaceFolder}/target/xtensa-esp32s2-espidf/debug/hello-world \"", "ignoreFailures": false },
+                          { "text": "-interpreter-exec console \"hb main \"", "ignoreFailures": false }
+            ]
+        }
+    ]
+}
+
