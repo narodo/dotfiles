@@ -12,6 +12,9 @@ local tabstop = 4
 local timeoutlen=600
 local updatetime=300
 
+local tab_char=">"
+local space_char="␣"
+
 --editor 
 --autocmd GUIEnter * set visualbell t_vb=
 opt('o', 'noerrorbells visualbell t_vb=')
@@ -35,6 +38,9 @@ vim.g.loaded_netrwPlugin = 1
 
 -- color scheme 
 vim.cmd('colorscheme gruvbox-material')
+
+-- color column @80  
+opt('w', 'colorcolumn', '80')
 
 -- split preferences
 opt('o', 'splitbelow', true)
@@ -65,6 +71,9 @@ opt('b', 'smartindent', true)
 opt('b', 'expandtab', true)
 opt('b', 'autoindent', true)
 vim.cmd('filetype plugin indent on')
+
+-- listchars
+vim.opt.listchars = { space = '_' , tab = '▸ ', eol = '↵', trail = '~' }
 
 -- folding 
 opt('w', 'foldcolumn', '0')
