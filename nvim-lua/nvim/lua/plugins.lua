@@ -51,6 +51,14 @@ function M.setup()
             disable = false,
         }
 
+        use {
+            "ggandor/leap.nvim",
+            disable = false,
+            config = function()
+                require("config.packages.leap").setup()
+            end,
+        }
+
         -- Git
         use {
             "tpope/vim-fugitive",
