@@ -28,6 +28,7 @@ function M.setup()
             buffers = {
                 theme = "dropdown",
                 sort_lastused = true,
+                path_display={"truncate"},
                 mappings = {
                     i = {
                         ["<c-d>"] = "delete_buffer",
