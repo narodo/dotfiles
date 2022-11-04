@@ -78,24 +78,12 @@ vim.opt.listchars = { space = '_' , tab = '▸ ', eol = '↵', trail = '~' }
 -- folding 
 opt('w', 'foldcolumn', '0')
 
--- compatibility 
+-- compatibility
 opt('o', 'compatible', false)
 
 -- clipboard 
 vim.cmd('set clipboard+=unnamedplus')
 
---"Change indent style for MAKE files and make c source kernel compatible
---autocmd FileType make set noexpandtab
---autocmd FileType c    set noexpandtab shiftwidth=8 tabstop=8
---autocmd FileType cpp  set noexpandtab shiftwidth=8 tabstop=8
---autocmd FileType dts  setlocal noexpandtab shiftwidth=8 tabstop=8
-
-vim.cmd([[
-  augroup My_group
-    autocmd!
-    autocmd FileType make set noexpandtab 
-  augroup END
-]])
 
 --" delete trailing white spaces
 --:nnoremap <silent> <F12> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
