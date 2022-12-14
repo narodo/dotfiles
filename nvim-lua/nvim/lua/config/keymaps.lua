@@ -41,6 +41,7 @@ map('n', '//', ':nohl<CR>')
 -- Telescope 
 map('n', '<leader>ff', '<cmd> Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>fw', '<cmd>Telescope grep_string<cr>')
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 map('n', '<leader>fj', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
@@ -48,6 +49,7 @@ map('n', '<leader>fo', '<cmd>Telescope oldfiles<cr>')
 map('n', '<leader>fq', '<cmd>Telescope quickfix<cr>')
 map('n', '<leader>fp', '<cmd>lua require("telescope").extensions.project.project{}<CR>')
 map('n', '<leader>fn', '<cmd>Telescope file_browser<cr>')
+map('n', '<leader>fm', '<cmd>Telescope marks<cr>')
 
 -- NnvimTree 
 map('n', '<leader>n', '<cmd>NvimTreeToggle <cr>')
