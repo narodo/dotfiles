@@ -118,3 +118,9 @@ if [ -f $HOME/.zshrc.fixup ]; then
     source $HOME/.zshrc.fixup
 fi
 
+alias ypwd="pwd | xsel -b"
+alias gitpr="git log --pretty=oneline"
+alias snapcr="snapaccess credentials refresh"
+
+# The next line updates PATH for the NLO
+if [ -f '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc' ]; then . '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc'; fi
