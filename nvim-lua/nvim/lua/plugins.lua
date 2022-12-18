@@ -142,7 +142,8 @@ function M.setup()
             config = function() require("nvim-autopairs").setup {} end,
         }
 
-        -- LSP 
+
+        -- LSP Config
         use {
             'VonHeikemen/lsp-zero.nvim',
             config = function()
@@ -168,6 +169,15 @@ function M.setup()
             }
         }
 
+        -- additional ccls features
+        use {
+            'm-pilia/vim-ccls'
+        }
+
+        -- ccls highlighting and skipped regions
+        use {
+            'jackguo380/vim-lsp-cxx-highlight',
+        }
 
         -- Debugging
         use {
