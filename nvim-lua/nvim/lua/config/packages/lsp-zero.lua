@@ -45,7 +45,7 @@ function M.setup()
                 local end_line=data['end']['line'] -1
 
                 for i =  start_line,end_line, 1 do
-                    vim.api.nvim_buf_add_highlight(0, ns, 'Comment', i, 0, -1) --line(i))
+                    vim.api.nvim_buf_add_highlight(0, ns, 'Ignore', i, 0, -1)
                 end
             end
         end
