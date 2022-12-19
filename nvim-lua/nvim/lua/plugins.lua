@@ -174,11 +174,6 @@ function M.setup()
             'm-pilia/vim-ccls'
         }
 
-        -- ccls highlighting and skipped regions
-        use {
-            'jackguo380/vim-lsp-cxx-highlight',
-        }
-
         -- Debugging
         use {
             'mfussenegger/nvim-dap',
