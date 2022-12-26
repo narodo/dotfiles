@@ -18,9 +18,9 @@ function M.setup()
         name = "Launch file",
         type = "cppdbg",
         request = "launch",
-        program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
+        -- program = function()
+        --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        -- end,
         cwd = '${workspacseFolder}',
         stopAtEntry = true,
       },
@@ -29,8 +29,6 @@ function M.setup()
         type = 'cppdbg',
         request = 'launch',
         MIMode = 'gdb',
-        miDebuggerServerAddress = 'localhost:3333',
-        miDebuggerPath = '/usr/bin/gdb',
         cwd = '${workspaceFolder}',
         program = function()
           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
@@ -39,7 +37,7 @@ function M.setup()
     }
 
     dap.configurations.c = dap.configurations.cppdbg
-    dap.configurations.cpp = dap.configurations.cppdg
+    dap.configurations.cpp = dap.configurations.cppdbg
     dap.configurations.rust = dap.configurations.cppdbg
 
 end
