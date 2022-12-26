@@ -2,8 +2,6 @@ local M = {}
 
 function M.setup()
 
-    require("dapui").setup();
-
     local dap = require("dap");
 
     dap.adapters.cppdbg = {
