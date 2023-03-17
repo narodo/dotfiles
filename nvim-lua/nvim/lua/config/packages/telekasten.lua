@@ -3,7 +3,12 @@ local M = {}
 function M.setup()
 
     require("telekasten").setup {
-      home = vim.fn.expand("~/tools/zettelkasten"),
+        home = "~/tools/zettelbox/work/",
+        vaults = {
+            personal = {
+                home = "~/tools/zettelbox/personal/",
+            }
+        }
     }
 
 end
