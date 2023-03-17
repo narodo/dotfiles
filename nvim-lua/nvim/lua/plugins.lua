@@ -201,6 +201,19 @@ function M.setup()
         }
 
 
+        use {
+            'renerocksai/telekasten.nvim',
+            config = function()
+                require("config.packages.telekasten").setup()
+            end,
+            requires = {
+                'nvim-telescope/telescope.nvim',
+                'renerocksai/calendar-vim',
+            }
+         }
+
+
+
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
             require("packer").sync()
