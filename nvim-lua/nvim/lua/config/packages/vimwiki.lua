@@ -25,6 +25,13 @@ function M.setup()
         callback = DailyTemplate,
     })
 
+    vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+        pattern = {"*/diary.md"},
+        command = "VimwikiDiaryGenerateLinks",
+    })
+
+    vim.api.nvim_create_user_command("Diary", "VimwikiDiaryIndex", {})
+
 end
 
 return M
