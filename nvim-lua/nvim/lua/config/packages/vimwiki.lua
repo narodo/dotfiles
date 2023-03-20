@@ -5,14 +5,11 @@ function M.setup()
     local wiki_work = {path = '~/tools/vimwiki/', name = 'work', ext = '.md'}
     local wiki_private = {path = '~/tools/vimwiki_priv/', name = 'private', ext = '.md'}
 
-
     vim.g.vimwiki_list = {wiki_work, wiki_private}
-    -- vim.g.vimwiki_list = { {path = '~/tools/vimwiki/',  ext = '.md'} }
 
     local function DailyTemplate ()
         local date = os.date("%Y-%b-%d %H:%M")
 
-        -- vim.api.nvim_buf_set_lines(0, 1, 1, true, {"first line"})
         vim.api.nvim_buf_set_lines(0, 0, 0, true, {"= Daily Note: " .. date .. " ="})
         vim.api.nvim_buf_set_lines(0, -1, -1, true, {"== To-Do =="})
         vim.api.nvim_buf_set_lines(0, -1, -1, true, {""})
