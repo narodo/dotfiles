@@ -2,8 +2,9 @@ local M = {}
 
 function M.setup()
 
-    local wiki_work = {path = '~/tools/vimwiki/', name = 'work', ext = '.md'}
-    local wiki_private = {path = '~/tools/vimwiki_priv/', name = 'private', ext = '.md'}
+    local rootPath = '~/tools/vimwiki/'
+    local wiki_work = {path = rootPath .. 'work', name = 'work', ext = '.md'}
+    local wiki_private = {path = rootPath .. '/private', name = 'private', ext = '.md'}
 
     vim.g.vimwiki_list = {wiki_work, wiki_private}
 
@@ -28,6 +29,11 @@ function M.setup()
     vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
         pattern = {"*/diary.md"},
         command = "VimwikiDiaryGenerateLinks",
+    })
+
+    vim.api.nvim_create_autocmd("BufRead", {
+        pattern = {"*.md"},
+        command = "lua vim.diagnostic.disable(0)",
     })
 
     vim.api.nvim_create_user_command("Diary", "VimwikiDiaryIndex", {})
