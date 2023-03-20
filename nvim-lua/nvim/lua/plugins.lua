@@ -200,18 +200,26 @@ function M.setup()
             'christoomey/vim-tmux-navigator'
         }
 
-
         use {
-            'renerocksai/telekasten.nvim',
+            'vimwiki/vimwiki',
             config = function()
-                require("config.packages.telekasten").setup()
+                require("config.packages.vimwiki").setup()
             end,
             requires = {
-                'nvim-telescope/telescope.nvim',
-                'renerocksai/calendar-vim',
+                'mattn/calendar-vim',
             }
-         }
+        }
 
+        -- use {
+        --     'renerocksai/telekasten.nvim',
+        --     config = function()
+        --         require("config.packages.telekasten").setup()
+        --     end,
+        --     requires = {
+        --         'nvim-telescope/telescope.nvim',
+        --         'renerocksai/calendar-vim',
+        --     }
+        --  }
 
 
         if packer_bootstrap then
