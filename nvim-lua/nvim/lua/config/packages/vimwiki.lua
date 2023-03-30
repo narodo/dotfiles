@@ -31,7 +31,7 @@ function M.setup()
         command = "VimwikiDiaryGenerateLinks",
     })
 
-    vim.api.nvim_create_autocmd("BufRead", {
+    vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
         pattern = {"*.md"},
         command = "lua vim.diagnostic.disable(0)",
     })
