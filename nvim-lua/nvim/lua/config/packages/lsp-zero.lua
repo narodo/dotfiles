@@ -18,6 +18,8 @@ function M.setup()
       end,
     })
 
+    lsp.skip_server_setup({'clangd'})
+
     lsp.setup()
 
     vim.diagnostic.config({
