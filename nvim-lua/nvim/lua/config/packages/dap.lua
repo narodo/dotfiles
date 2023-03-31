@@ -3,6 +3,7 @@ local M = {}
 function M.setup()
 
     local dap = require("dap");
+    dap.defaults.fallback.switchbuf = 'uselast';
 
     dap.adapters.cppdbg = {
       id = 'cppdbg',
