@@ -210,6 +210,13 @@ function M.setup()
             }
         }
 
+        use {
+            'mhartington/formatter.nvim',
+            config = function()
+                require("config.packages.formatter").setup()
+            end,
+        }
+
         -- use {
         --     'renerocksai/telekasten.nvim',
         --     config = function()
