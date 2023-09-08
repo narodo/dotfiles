@@ -201,10 +201,10 @@ function M.setup()
         }
 
         use {
-            'ntpeters/vim-better-whitespace',
-            config = function ()
-                require('vim-better-whitespace-nvim').setup()
-            end,
+            'ntpeters/vim-better-whitespace'
+            -- config = function ()
+            --     require('config.packages.whitespace').setup()
+            -- end,
         }
 
         if packer_bootstrap then
