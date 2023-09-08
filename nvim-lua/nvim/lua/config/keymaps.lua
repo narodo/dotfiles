@@ -103,4 +103,6 @@ map('n', '<leader>zb', '<cmd>Telekasten show_backlinks<CR>')
 map('n', '<leader>zI', '<cmd>Telekasten insert_img_link<CR>')
 map('i', '[[', '<cmd>Telekasten insert_link<CR>')
 
-
+-- LSP
+--  format selected range in visual mode or complete file
+vim.keymap.set({'v', 'n'}, '<leader>F', vim.lsp.buf.format)
