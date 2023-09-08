@@ -217,17 +217,12 @@ function M.setup()
             end,
         }
 
-        -- use {
-        --     'renerocksai/telekasten.nvim',
-        --     config = function()
-        --         require("config.packages.telekasten").setup()
-        --     end,
-        --     requires = {
-        --         'nvim-telescope/telescope.nvim',
-        --         'renerocksai/calendar-vim',
-        --     }
-        --  }
-
+        use {
+            'ntpeters/vim-better-whitespace',
+            config = function ()
+                require('vim-better-whitespace-nvim').setup()
+            end,
+        }
 
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
