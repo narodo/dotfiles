@@ -15,10 +15,9 @@ local updatetime=300
 local tab_char=">"
 local space_char="␣"
 
---editor 
+--editor
 --autocmd GUIEnter * set visualbell t_vb=
 opt('o', 'noerrorbells visualbell t_vb=')
-opt('o', 'colorcolumn', 80)
 opt('o', 'mouse', 'a')
 opt('o', 'number', true)
 opt('o', 'ruler', true)
@@ -32,15 +31,15 @@ opt('o', 'relativenumber', true)
 opt('o', 'syntax ', true)
 opt('o', 'winaltkeys ', false)
 
--- netrw 
+-- netrw
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
--- color scheme 
+-- color scheme
 vim.cmd('colorscheme gruvbox-material')
 
--- color column @80  
-opt('w', 'colorcolumn', '80')
+-- color column
+opt('w', 'colorcolumn', '100')
 
 -- split preferences
 opt('o', 'splitbelow', true)
@@ -57,13 +56,13 @@ opt('o', 'incsearch', true)
 opt('o', 'ignorecase', true)
 opt('o', 'smartcase', true)
 
--- encoding 
+-- encoding
 opt('o', 'enc', 'utf-8')
 opt('o', 'fenc','utf-8')
 opt('o', 'termencoding', '=utf-8')
 opt('o', 'termguicolors', true)
 --
--- indention 
+-- indention
 opt('b', 'shiftwidth', indent)
 opt('b', 'tabstop', tabstop)
 opt('b', 'softtabstop', tabstop)
@@ -75,11 +74,11 @@ vim.cmd('filetype plugin indent on')
 -- listchars
 vim.opt.listchars = { space = '_' , tab = '▸ ', eol = '↵', trail = '~' }
 
--- folding 
+-- folding
 opt('w', 'foldcolumn', '0')
 
 -- compatibility
 opt('o', 'compatible', false)
 
--- clipboard 
+-- clipboard
 vim.cmd('set clipboard+=unnamedplus')
