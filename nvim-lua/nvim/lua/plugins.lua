@@ -67,9 +67,7 @@ function M.setup()
             requires = {
                 "tpope/vim-rhubarb",
                 "idanarye/vim-merginal",
-                --[[ "rhysd/committia.vim", ]]
             },
-            -- wants = { "vim-rhubarb" },
         }
 
         -- Telescope
@@ -90,28 +88,13 @@ function M.setup()
             requires = {
                 "nvim-lua/popup.nvim",
                 "nvim-lua/plenary.nvim",
-                -- "nvim-telescope/telescope-project.nvim",
-                {"narodo/telescope-project.nvim", branch = 'feature/make-cwd-change-optional'},
                 "nvim-telescope/telescope-file-browser.nvim",
             },
         }
 
-
         -- nerdtree
         use {
             'scrooloose/nerdtree'
-        }
-
-        -- nvim-tree
-        use {
-            "kyazdani42/nvim-tree.lua",
-            opt = true,
-            disable = true,
-            cmd = { "NvimTreeToggle", "NvimTreeClose" },
-            -- module = { "nvim-tree", "nvim-tree.actions.root.change-dir" },
-            config = function()
-                require("config.packages.nvimtree").setup()
-            end,
         }
 
         -- harpoon

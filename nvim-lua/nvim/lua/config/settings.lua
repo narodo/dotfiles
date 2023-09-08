@@ -83,9 +83,3 @@ opt('o', 'compatible', false)
 
 -- clipboard 
 vim.cmd('set clipboard+=unnamedplus')
-
-
---" delete trailing white spaces
---:nnoremap <silent> <F12> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-
-vim.cmd('packadd termdebug')
