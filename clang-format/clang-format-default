@@ -1,0 +1,10 @@
+"BasedOnStyle": "LLVM"
+"Language": "Cpp"
+"IndentWidth": 4
+"BreakBeforeBraces": "Linux"
+"AlwaysBreakBeforeMultilineStrings": "true"
+"AllowShortFunctionsOnASingleLine": "false"
+"ColumnLimit" : 100
+
+# Don't break long strings so we can grep for them
+"BreakStringLiterals" : false
