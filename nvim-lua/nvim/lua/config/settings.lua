@@ -30,6 +30,7 @@ opt('o', 'hidden', true)
 opt('o', 'relativenumber', true)
 opt('o', 'syntax ', true)
 opt('o', 'winaltkeys ', false)
+opt('o', 'exrc', true)
 
 -- netrw
 vim.g.loaded = 1
