@@ -1,0 +1,26 @@
+ require("lsp-zero").configure('ccls', {
+      force_setup = true,
+      init_options = {
+        compilationDatabaseDirectory = "./build";
+        highlight = {
+          lsRanges = true,
+        };
+        clang = {
+            extraArgs = {
+                "-target=riscv32",
+                "-mlong-calls",
+                -- "-I/home/inarodoslawsky/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/riscv32-esp-elf/sys-include",
+                -- "-I/home/inarodoslawsky/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/"
+            };
+            excludeArgs = {
+                "-fno-shrink-wrap",
+                "-fno-tree-switch-conversion",
+                "-mtext-section-literals",
+                "-mlongcalls",
+                "-fstrict-volatile-bitfields"
+                };
+        };
+      },
+      on_attach = function()
+      end,
+ })
