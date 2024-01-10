@@ -74,7 +74,7 @@ function M.setup()
         use {
             "nvim-telescope/telescope.nvim",
             opt = false,
-            disable = false, 
+            disable = false,
             config = function()
                 require("config.packages.telescope").setup()
             end,
@@ -122,11 +122,11 @@ function M.setup()
         --Autopair
         use {
             "windwp/nvim-autopairs",
-            config = function() require("nvim-autopairs").setup {} end,
+            config = function()
+                require("nvim-autopairs").setup()
+            end,
         }
 
-
-        -- LSP Config
         use {
             'VonHeikemen/lsp-zero.nvim',
             config = function()
