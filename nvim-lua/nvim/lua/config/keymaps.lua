@@ -6,7 +6,7 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Leader 
+-- Leader
 vim.g.mapleader = " "
 
 -- use jj instead of ESC
@@ -38,7 +38,7 @@ map('n', '<C-p>', ':cprev<CR>')
 -- highlighting
 map('n', '//', ':nohl<CR>')
 
--- Telescope 
+-- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>fw', '<cmd>Telescope grep_string<cr>')
@@ -51,7 +51,15 @@ map('n', '<leader>fp', '<cmd>lua require("telescope").extensions.project.project
 map('n', '<leader>fn', '<cmd>Telescope file_browser<cr>')
 map('n', '<leader>fm', '<cmd>Telescope marks<cr>')
 
--- NnvimTree 
+-- IDE functionality
+map('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>')
+map('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>')
+map('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>')
+map('n', 'gci', '<cmd>lua require("telescope.builtin").lsp_incoming_calls()<CR>')
+map('n', 'gco', '<cmd>lua require("telescope.builtin").lsp_outgoing_calls()<CR>')
+map('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>')
+
+-- NnvimTree
 map('n', '<leader>n', '<cmd>NvimTreeToggle <cr>')
 
 -- Harpoon
@@ -75,7 +83,7 @@ map('n', '<F6>', ':lua require("dap").step_into()<CR>')
 map('n', '<F7>', ':lua require("dap").step_out()<CR>')
 map('n', '<F8>', ':lua require("dap").step_over()<CR>')
 
-vim.keymap.set('n', '<leader>dj', 
+vim.keymap.set('n', '<leader>dj',
     function()
         path = vim.fn.input('Path to json: ', vim.fn.getcwd() .. '/', 'file')
         require("dap.ext.vscode").load_launchjs(path)
