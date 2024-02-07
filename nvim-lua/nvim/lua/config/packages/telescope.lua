@@ -6,6 +6,7 @@ function M.setup()
 
     telescope.setup {
         defaults = {
+            theme = "dropdown",
             layout_strategy = "vertical",
             layout_config = {
                 prompt_position = "top",
@@ -18,13 +19,6 @@ function M.setup()
             dynamic_preview_title = true,
         },
         pickers = {
-            -- Default configuration for builtin pickers goes here:
-            -- picker_name = {
-            --   picker_config_key = value,
-            --   ...
-            -- }
-            -- Now the picker_config_key will be applied every time you call this
-            -- builtin picker
             buffers = {
                 theme = "dropdown",
                 sort_lastused = true,
@@ -35,13 +29,6 @@ function M.setup()
                     }
                 }
             },
-
-            live_grep = {
-                theme = "dropdown",
-            },
-            find_files = {
-                theme = "dropdown",
-            }
         },
         extensions = {
             -- Your extension configuration goes here:
