@@ -7,3 +7,30 @@ if [ -f '/home/inarodoslawsky/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 
 export GOOGLE_CLOUD_PROJECT=snaplab-993
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
+
+adbdeviceFunc() {
+    if [[ $1 == "cv" ]]; then
+        echo "Looking for CV device"
+        dev_sn="$(adb devices | grep _cv | head -1 | awk '{print $1}')"
+    else
+        echo "Looking for APP devices"
+        dev_sn="$(adb devices | grep _app | head -1 | awk '{print $1}')"
+    fi
+
+    if [[ $dev_sn == "" ]]; then
+        echo "Device not found!"
+        exit 1
+    else
+        echo "Device $dev_sn found, setting ANDROID_SERIAL env"
+        export ANDROID_SERIAL=$dev_sn
+    fi
+}
+
+autoload adbdeviceFunc
+
+alias adbApp="adbdeviceFunc app"
+alias adbCv="adbdeviceFunc cv"
+alias adbRR="adb root && adb remount"
+
+alias gitBc="git branch --show-current"
+alias gitLp="git log --pretty=oneline"
