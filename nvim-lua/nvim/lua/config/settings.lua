@@ -17,7 +17,6 @@ local space_char="␣"
 
 --editor
 --autocmd GUIEnter * set visualbell t_vb=
-opt('o', 'noerrorbells visualbell t_vb=')
 opt('o', 'mouse', 'a')
 opt('o', 'number', true)
 opt('o', 'ruler', true)
@@ -28,8 +27,6 @@ opt('o', 'switchbuf', 'useopen,usetab,split')
 opt('o', 'showmode', true)
 opt('o', 'hidden', true)
 opt('o', 'relativenumber', true)
-opt('o', 'syntax ', true)
-opt('o', 'winaltkeys ', false)
 opt('o', 'exrc', true)
 
 -- netrw
@@ -60,7 +57,6 @@ opt('o', 'smartcase', true)
 -- encoding
 opt('o', 'enc', 'utf-8')
 opt('o', 'fenc','utf-8')
-opt('o', 'termencoding', '=utf-8')
 opt('o', 'termguicolors', true)
 --
 -- indention
