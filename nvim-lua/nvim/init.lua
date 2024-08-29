@@ -14,5 +14,3 @@ require("lazy").setup({
 require("config.autocmds")
 require("config.statusline")
 require("config.color")
-
-require("scripts/telescope-buffer-picker")
