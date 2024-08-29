@@ -93,11 +93,10 @@ vim.keymap.set('n', '<leader>dj',
 -- DAP UI
 map('n', '<leader>du', ':lua require("dapui").toggle()<CR>')
 
-
 -- Nerdtree
-map('n', '<leader>n', ':NERDTreeToggle<CR>')
-map('n', '<leader>r', ':NERDTreeFind<CR>')
-
+map('n', '<leader>nn', ':NvimTreeToggle<CR>')
+map('n', '<leader>na', '<cmd>CustomNvimTreeOpen<CR>')
+map('n', '<leader>r', '<cmd>CustomNvimTreeFind<CR>')
 
 -- LSP
 --  format selected range in visual mode or complete file

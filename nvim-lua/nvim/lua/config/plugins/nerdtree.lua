@@ -1,2 +1,4 @@
-return { 'scrooloose/nerdtree' }
-
+return {
+    'scrooloose/nerdtree',
+    enabled = false,
+}

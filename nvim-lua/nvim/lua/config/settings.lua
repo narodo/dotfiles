@@ -1,5 +1,5 @@
 --settings
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
+local scopes = {o = vim.o, b = vim.bo, w = vim.wo, g=vim.g}
 
 local function opt(scope, key, value)
   scopes[scope][key] = value
@@ -72,3 +72,7 @@ opt('o', 'compatible', false)
 
 -- clipboard
 vim.cmd('set clipboard+=unnamedplus')
+
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
