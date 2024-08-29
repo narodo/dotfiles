@@ -1,10 +1,12 @@
-local M = {}
-
-function M.setup()
-
-    local telescope = require "telescope"
-
-    telescope.setup {
+return {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
+    },
+    opts = {
+        -- require("telescope").setup {
         defaults = {
             theme = "dropdown",
             layout_strategy = "vertical",
@@ -21,13 +23,9 @@ function M.setup()
         pickers = {
             buffers = {
                 theme = "dropdown",
-                sort_lastused = true,
-                path_display={"truncate"},
-                mappings = {
-                    i = {
-                        ["<c-d>"] = "delete_buffer",
-                    }
-                }
+                ingnore_current_buffer = true,
+                sort_mru = true,
+                path_display = { "truncate" },
             },
         },
         extensions = {
@@ -47,11 +45,6 @@ function M.setup()
                     size = true,
                 }
             },
-        }
+        },
     }
-
-    -- require('telescope').load_extension('project')
-    require('telescope').load_extension('file_browser')
-end
-
-return M
+}

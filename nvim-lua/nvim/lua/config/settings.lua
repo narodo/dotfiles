@@ -1,4 +1,3 @@
-
 --settings
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
 

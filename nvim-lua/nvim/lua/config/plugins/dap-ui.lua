@@ -1,8 +1,8 @@
-local M = {}
+return {
 
-function M.setup()
-
-    require("dapui").setup ({
+    'rcarriga/nvim-dap-ui',
+    dependencies = "nvim-neotest/nvim-nio",
+    opts = {
       -- icons = { expanded = "?", collapsed = "?" },
       mappings = {
         -- Use a table to apply multiple mappings
@@ -37,8 +37,5 @@ function M.setup()
         },
       },
       windows = { indent = 1 },
-    })
-
-end
-
-return M
+    }
+}
