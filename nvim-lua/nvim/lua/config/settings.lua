@@ -32,12 +32,6 @@ opt('o', 'exrc', true)
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
--- color scheme
-vim.cmd('colorscheme gruvbox-material')
-
--- color column
-opt('w', 'colorcolumn', '100')
-
 -- split preferences
 opt('o', 'splitbelow', true)
 opt('o', 'splitright', true)

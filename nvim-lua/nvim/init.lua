@@ -1,5 +1,6 @@
 require("config.lazy")
 require("config.keymaps")
+require("config.settings")
 
 require("lazy").setup({
   spec = {
@@ -10,8 +11,8 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
-require("config.settings")
 require("config.autocmds")
 require("config.statusline")
+require("config.color")
 
 require("scripts/telescope-buffer-picker")
