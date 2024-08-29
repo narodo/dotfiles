@@ -55,8 +55,8 @@ map('n', '<leader>fm', '<cmd>Telescope marks<cr>')
 map('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>')
 map('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>')
 map('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>')
-map('n', 'gci', '<cmd>lua require("telescope.builtin").lsp_incoming_calls()<CR>')
-map('n', 'gco', '<cmd>lua require("telescope.builtin").lsp_outgoing_calls()<CR>')
+map('n', 'gti', '<cmd>lua require("telescope.builtin").lsp_incoming_calls()<CR>')
+map('n', 'gto', '<cmd>lua require("telescope.builtin").lsp_outgoing_calls()<CR>')
 map('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>')
 
 -- NnvimTree
