@@ -40,6 +40,9 @@ map('n', '//', ':nohl<CR>')
 
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files<CR>')
+map('n', '<leader>fdf', '<cmd>lua require("telescope").load_extension("directory").live_grep({})<cr>')
+map('n', '<leader>fdc', '<cmd>TelescopeFindFileCWD<cr>')
+map('n', '<leader>fdl', '<cmd>lua require("telescope-directory").directory({feature = "show"})<cr>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>fw', '<cmd>Telescope grep_string<cr>')
 -- map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
