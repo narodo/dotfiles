@@ -1,12 +1,12 @@
 local Path = require "plenary.path"
 local telescope_actions = require("telescope.actions.state")
+
 vim.api.nvim_create_user_command('CustomTSBufPicker',
     function()
         local builtin = require('telescope.builtin')
         local action_state = require('telescope.actions.state')
 
         builtin.buffers({
-            initial_mode = "insert",
             attach_mappings = function(prompt_bufnr, map)
                 local delete_buf = function()
                     local current_picker = action_state.get_current_picker(prompt_bufnr)
@@ -17,7 +17,20 @@ vim.api.nvim_create_user_command('CustomTSBufPicker',
                 map('n', '<c-d>', delete_buf)
                 return true
             end
-        }, { })
+        }, {})
+    end,
+    { nargs = 0 }
+)
+
+vim.api.nvim_create_user_command('TelescopeFindFileCWD',
+    function()
+        vim.ui.input({ prompt = 'Path: ', completion = "file" },
+            function(input)
+                require("telescope.builtin").find_files({cwd = input})
+                -- if nvim-tree is open already it does not reliably update the root node
+                -- to workaround this we close it first
+            end
+        )
     end,
     { nargs = 0 }
 )
