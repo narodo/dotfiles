@@ -83,7 +83,6 @@ return {
         },
         pickers = {
             buffers = {
-                theme = "dropdown",
                 ingnore_current_buffer = true,
                 sort_mru = true,
                 path_display = { "truncate" },
