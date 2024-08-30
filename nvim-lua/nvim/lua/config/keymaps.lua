@@ -62,7 +62,8 @@ map('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>'
 map('n', 'gti', '<cmd>lua require("telescope.builtin").lsp_incoming_calls()<CR>')
 map('n', 'gto', '<cmd>lua require("telescope.builtin").lsp_outgoing_calls()<CR>')
 map('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>')
-
+map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 -- NnvimTree
 map('n', '<leader>n', '<cmd>NvimTreeToggle <cr>')
 
