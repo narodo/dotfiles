@@ -1,3 +1,5 @@
+local Path = require "plenary.path"
+local telescope_actions = require("telescope.actions.state")
 vim.api.nvim_create_user_command('CustomTSBufPicker',
     function()
         local builtin = require('telescope.builtin')
@@ -20,6 +22,22 @@ vim.api.nvim_create_user_command('CustomTSBufPicker',
     { nargs = 0 }
 )
 
+function OpenInOil(entry)
+    local newPath = Path.new(entry.value)
+    if not Path.exists(newPath) then
+        print("Not a valid path -", Path.expand(newPath))
+        return
+    end
+
+    local pathDir
+    if Path.is_file(newPath) then
+       pathDir = Path.expand(Path.parent(newPath))
+    else
+       pathDir = Path.expand(newPath)
+    end
+    require("oil").open_float(pathDir)
+end
+
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -41,6 +59,14 @@ return {
                 num_pickers = 20,
             },
             dynamic_preview_title = true,
+
+            mappings = {
+                n = {
+                    ["o"] = function()
+                        OpenInOil(telescope_actions.get_selected_entry())
+                    end,
+                }
+            },
         },
         pickers = {
             buffers = {
