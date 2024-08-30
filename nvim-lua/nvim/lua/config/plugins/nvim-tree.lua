@@ -51,6 +51,23 @@ local function my_on_attach(bufnr)
         end,
         opts('Change vim directory to node dir')
     )
+
+    -- custom mappings
+    vim.keymap.set('n', 's',
+        function()
+            local current = require("nvim-tree.api").tree.get_node_under_cursor()
+            print(current.type)
+            if current.type == nil then
+                print("Not a valid node")
+                return
+            end
+            if current.type == "file" then
+                current = current.parent
+            end
+            require("telescope.builtin").find_files({cwd = current.absolute_path})
+        end,
+        opts('Change vim directory to node dir')
+    )
 end
 
 
