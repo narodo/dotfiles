@@ -43,7 +43,7 @@ return {
     dependencies = {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-file-browser.nvim",
+        "fbuchlak/telescope-directory.nvim",
     },
     opts = {
         -- require("telescope").setup {
@@ -76,22 +76,18 @@ return {
                 path_display = { "truncate" },
             },
         },
+
         extensions = {
-            -- Your extension configuration goes here:
-            project = {
-                theme = "dropdown",
-                explicit_set_cwd = true,
-            },
-            file_browser = {
-                grouped = true,
-                previewer = false,
-                hijack_netrw = true,
-                theme = "dropdown",
-                dir_icon = "📁",
-                display_stat = {
-                    date = true,
-                    size = true,
-                }
+            directory = {
+                feature = {
+                    {
+                        name = "show",
+                        callback = function(dirs)
+                            vim.print(dirs)
+                        end
+
+                    },
+                },
             },
         },
     }
