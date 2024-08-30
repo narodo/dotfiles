@@ -93,13 +93,6 @@ return {
         extensions = {
             directory = {
                 feature = {
-                    {
-                        name = "show",
-                        callback = function(dirs)
-                            vim.print(dirs)
-                        end
-
-                    },
                 },
             },
         },
