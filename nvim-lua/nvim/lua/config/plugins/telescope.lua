@@ -1,5 +1,4 @@
 local Path = require "plenary.path"
-local telescope_actions = require("telescope.actions.state")
 
 vim.api.nvim_create_user_command('CustomTSBufPicker',
     function()
@@ -76,6 +75,7 @@ return {
             mappings = {
                 n = {
                     ["o"] = function()
+                        local telescope_actions = require("telescope.actions.state")
                         OpenInOil(telescope_actions.get_selected_entry())
                     end,
                 }
