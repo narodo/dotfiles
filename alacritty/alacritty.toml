@@ -1,6 +1,9 @@
 [shell]
 program = "/usr/bin/zsh"
 
+[terminal]
+osc52 = "CopyPaste"
+
 [window]
 decorations_theme_variant = "dark"
 
@@ -20,7 +23,7 @@ bold.family = "JetBrains Mono"
 bold.style = "Bold"
 italic.family = "JetBrains Mono"
 italic.style = "Italic"
-size = 11.0
+size = 12.0
 
 [colors]
 draw_bold_text_with_bright_colors = true
