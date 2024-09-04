@@ -57,6 +57,7 @@ ffind() {
 autoload adbdeviceFunc
 
 alias fd="fdfind"
+alias ff="ffind"
 
 alias adbApp="adbdeviceFunc app"
 alias adbCv="adbdeviceFunc cv"
