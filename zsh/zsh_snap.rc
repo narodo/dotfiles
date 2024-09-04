@@ -4,6 +4,7 @@ if [ -f '/home/inarodoslawsky/google-cloud-sdk/path.zsh.inc' ]; then . '/home/in
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/inarodoslawsky/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inarodoslawsky/google-cloud-sdk/completion.zsh.inc'; fi
 
+export EDITOR="nvim"
 
 export GOOGLE_CLOUD_PROJECT=snaplab-993
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
@@ -26,7 +27,34 @@ adbdeviceFunc() {
     fi
 }
 
+fcd() {
+    dir=$(fdfind . -t d $1 | fzf --height=80% --border=sharp \
+    --preview='tree -C {}' --preview-window='45%,border-sharp' \
+    --prompt='Dirs > ')
+    if [ ! -z "$dir" ]; then
+        cd $dir
+    fi
+}
+
+fedit() {
+    file=$(fdfind . -t f $1 | fzf --height=80% --border=sharp \
+    --preview='tree -C {}' --preview-window='45%,border-sharp' \
+    --prompt='Edit file > ')
+    if [ ! -z "$file" ]; then
+        $EDITOR $file
+    fi
+}
+
+ffind() {
+    file=$(fdfind . -t f $1 | fzf --height=80% --border=sharp \
+    --preview='tree -C {}' --preview-window='45%,border-sharp' \
+    --prompt='Edit file > ')
+    echo $file
+}
+
 autoload adbdeviceFunc
+
+alias fd="fdfind"
 
 alias adbApp="adbdeviceFunc app"
 alias adbCv="adbdeviceFunc cv"
@@ -34,3 +62,4 @@ alias adbRR="adb root && adb remount"
 
 alias gitBc="git branch --show-current"
 alias gitLp="git log --pretty=oneline"
+
