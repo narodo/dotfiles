@@ -53,7 +53,7 @@ local function my_on_attach(bufnr)
     )
 
     -- custom mappings
-    vim.keymap.set('n', 's',
+    vim.keymap.set('n', 'F',
         function()
             local current = require("nvim-tree.api").tree.get_node_under_cursor()
             print(current.type)
@@ -68,8 +68,25 @@ local function my_on_attach(bufnr)
         end,
         opts('Change vim directory to node dir')
     )
-end
 
+    vim.keymap.set('n', 'G',
+        function()
+            local current = require("nvim-tree.api").tree.get_node_under_cursor()
+            print(current.type)
+            if current.type == nil then
+                print("Not a valid node")
+                return
+            end
+            if current.type == "file" then
+                current = current.parent
+            end
+            require("telescope.builtin").live_grep({cwd = current.absolute_path})
+        end,
+        opts('Change vim directory to node dir')
+    )
+
+    vim.keymap.set('n', '<C-f>',       api.live_filter.clear,               opts('Live Filter: Clear'))
+end
 
 return {
     "nvim-tree/nvim-tree.lua",
