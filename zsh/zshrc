@@ -74,23 +74,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
  }
 
 addPluginGit "zsh-autocomplete" "marlonrichert/zsh-autocomplete"
-addPluginGit "zsh-vi-mode" "jeffreytse/zsh-vi-mode"
-addPluginGit "fzf-tab-completion" "lincheney/fzf-tab-completion"
 addPluginGit "zsh-fzf-history-search" "joshskidmore/zsh-fzf-history-search"
 
 plugins=(
-    zsh-vi-mode
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-autopair
     fzf
     zsh-fzf-history-search
+    zsh-autopair
 )
-
-#vi mode options
-ZVM_VI_ESCAPE_BINDKEY="jj"
-
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
@@ -102,11 +95,7 @@ if [ -f $HOME/.zshrc.fixup ]; then
     source $HOME/.zshrc.fixup
 fi
 
-# The next line updates PATH for the NLO
-if [ -f '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc' ]; then . '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc'; fi
-
 # Init plugins
-autopair-init
 zstyle ':completion:*' menu select
 
 # use the vi navigation keys in menu completion
@@ -116,7 +105,69 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # Keybindings
-# bindkey -v
+bindkey -v
 bindkey '^R' fzf_history_search
 bindkey jj vi-cmd-mode
 bindkey '^H' autosuggest-accept
+
+autopair-init
+
+# custom functions
+adbdeviceFunc() {
+    if [[ $1 == "cv" ]]; then
+        echo "Looking for CV device"
+        dev_sn="$(adb devices | grep _cv | head -1 | awk '{print $1}')"
+    else
+        echo "Looking for APP devices"
+        dev_sn="$(adb devices | grep _app | head -1 | awk '{print $1}')"
+    fi
+
+    if [[ $dev_sn == "" ]]; then
+        echo "Device not found!"
+        exit 1
+    else
+        echo "Device $dev_sn found, setting ANDROID_SERIAL env"
+        export ANDROID_SERIAL=$dev_sn
+    fi
+}
+
+fcd() {
+    dir=$(fdfind . -t d $1 | fzf --height=80% --border=sharp \
+    --preview='tree -C {}' --preview-window='45%,border-sharp' \
+    --prompt='Dirs > ')
+    if [ ! -z "$dir" ]; then
+        cd $dir
+    fi
+}
+
+ffind() {
+    export FZF_TEMP_TARGETDIR=$1
+
+    file=$(fdfind . -t f $FZF_TEMP_TARGETDIR | fzf --multi --height=80% --border=sharp \
+    --preview='cat {}' --preview-window='45%,border-sharp' \
+    --prompt='Files > ' \
+    --bind='ctrl-d:change-prompt(Dirs > )' \
+    --bind='ctrl-d:+reload(fdfind . -t d $FZF_TEMP_TARGETDIR)' \
+    --bind='ctrl-d:+change-preview(tree -C {})' \
+    --bind='ctrl-d:+refresh-preview' \
+    --bind='ctrl-f:change-prompt(Files > )' \
+    --bind='ctrl-f:+reload(fdfind . -t f $FZF_TEMP_TARGETDIR)' \
+    --bind='ctrl-f:+change-preview(cat {})' \
+    --bind='ctrl-f:+refresh-preview' \
+    )
+    echo $file
+}
+
+autoload adbdeviceFunc
+
+alias fd="fdfind"
+alias ff="ffind"
+
+alias adbApp="adbdeviceFunc app"
+alias adbCv="adbdeviceFunc cv"
+alias adbRR="adb root && adb remount"
+
+alias gitBc="git branch --show-current"
+alias gitLp="git log --pretty=oneline"
+
+
