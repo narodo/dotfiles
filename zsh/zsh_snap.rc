@@ -41,7 +41,7 @@ ffind() {
 
     file=$(fdfind . -t f $FZF_TEMP_TARGETDIR | fzf --multi --height=80% --border=sharp \
     --preview='cat {}' --preview-window='45%,border-sharp' \
-    --prompt='Edit file > ' \
+    --prompt='Files > ' \
     --bind='ctrl-d:change-prompt(Dirs > )' \
     --bind='ctrl-d:+reload(fdfind . -t d $FZF_TEMP_TARGETDIR)' \
     --bind='ctrl-d:+change-preview(tree -C {})' \
