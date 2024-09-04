@@ -63,53 +63,37 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+ function addPluginGit() {
+     # $1: plugin name
+     # $2: plugin github url
+    if [[ ! -d $ZSH_CUSTOM/plugins/$1 ]]; then
+      git clone https://github.com/$2 $ZSH_CUSTOM/plugins/$1
+    fi
+ }
+
+addPluginGit "zsh-autocomplete" "marlonrichert/zsh-autocomplete"
+addPluginGit "zsh-vi-mode" "jeffreytse/zsh-vi-mode"
+addPluginGit "fzf-tab-completion" "lincheney/fzf-tab-completion"
+addPluginGit "zsh-fzf-history-search" "joshskidmore/zsh-fzf-history-search"
+
 plugins=(
+    zsh-vi-mode
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-autopair
+    fzf
+    zsh-fzf-history-search
 )
+
+#vi mode options
+ZVM_VI_ESCAPE_BINDKEY="jj"
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-bindkey jj vi-cmd-mode
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# wrapper for find 
-function fn {
-    find . -iname $1
-}
+export EDITOR="nvim"
 
 setopt no_share_history
 
@@ -118,9 +102,21 @@ if [ -f $HOME/.zshrc.fixup ]; then
     source $HOME/.zshrc.fixup
 fi
 
-alias ypwd="pwd | xsel -b"
-alias gitpr="git log --pretty=oneline"
-alias snapcr="snapaccess credentials refresh"
-
 # The next line updates PATH for the NLO
 if [ -f '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc' ]; then . '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc'; fi
+
+# Init plugins
+autopair-init
+zstyle ':completion:*' menu select
+
+# use the vi navigation keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Keybindings
+# bindkey -v
+bindkey '^R' fzf_history_search
+bindkey jj vi-cmd-mode
+bindkey '^H' autosuggest-accept
