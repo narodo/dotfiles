@@ -108,7 +108,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v
 bindkey '^R' fzf_history_search
 bindkey jj vi-cmd-mode
-bindkey '^H' autosuggest-accept
+bindkey '^ ' autosuggest-accept
 
 autopair-init
 
@@ -133,7 +133,7 @@ adbdeviceFunc() {
 
 fcd() {
     dir=$(fdfind . -t d $1 | fzf --height=80% --border=sharp \
-    --preview='tree -C {}' --preview-window='45%,border-sharp' \
+    --preview='tree -L 1 -C {}' --preview-window='45%,border-sharp' \
     --prompt='Dirs > ')
     if [ ! -z "$dir" ]; then
         cd $dir
