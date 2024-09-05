@@ -73,6 +73,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
     fi
  }
 
+addPluginGit "zsh-autopair" "hlissner/zsh-autopair"
 addPluginGit "zsh-autocomplete" "marlonrichert/zsh-autocomplete"
 addPluginGit "zsh-fzf-history-search" "joshskidmore/zsh-fzf-history-search"
 
