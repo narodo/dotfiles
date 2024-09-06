@@ -125,7 +125,6 @@ adbdeviceFunc() {
 
     if [[ $dev_sn == "" ]]; then
         echo "Device not found!"
-        exit 1
     else
         echo "Device $dev_sn found, setting ANDROID_SERIAL env"
         export ANDROID_SERIAL=$dev_sn
