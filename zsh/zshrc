@@ -162,7 +162,6 @@ autoload adbdeviceFunc
 
 alias fd="fdfind"
 alias ff="ffind"
-
 alias adbApp="adbdeviceFunc app"
 alias adbCv="adbdeviceFunc cv"
 alias adbRR="adb root && adb remount"
@@ -170,4 +169,7 @@ alias adbRR="adb root && adb remount"
 alias gitBc="git branch --show-current"
 alias gitLp="git log --pretty=oneline"
 
-
+if  command -v batcat &> /dev/null
+then
+    alias cat="batcat"
+fi
