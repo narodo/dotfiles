@@ -10,3 +10,7 @@ if [ -f '/home/inarodoslawsky/Snapchat/Dev/_nlo_/detail/scripts/path.shell.inc' 
 export GOOGLE_CLOUD_PROJECT=snaplab-993
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
+gsGet() {
+    gsutil cp gs://matador-$1-builds/$2 $3
+}
+
