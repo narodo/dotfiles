@@ -79,6 +79,9 @@ map('n', '<leader>h4',  ':lua require("harpoon.ui").nav_file(4)<CR>')
 -- Map CTRl-Q CTRL-Q to exit terminal mode
 map('t', '<C-q><C-q>', '<C-\\><C-n>')
 
+-- CMaek
+map('n', '<leader>cb', '<cmd>CMakeBuild <cr>')
+
 -- DAP
 map('n', '<leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
 map('n', '<leader>dl', ':lua require("dap").run_last()<CR>')
