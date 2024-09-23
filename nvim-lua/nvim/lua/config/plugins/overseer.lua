@@ -44,6 +44,7 @@ return {
           desc = "Deploy artifacts to HW",
           nargs = "*",
           bang = true,
+          complete = function() return {"hawaii", "comet"} end
         })
   end
 }
