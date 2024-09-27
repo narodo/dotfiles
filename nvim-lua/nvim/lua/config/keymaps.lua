@@ -38,6 +38,10 @@ map('n', '<C-p>', ':cprev<CR>')
 -- highlighting
 map('n', '//', ':nohl<CR>')
 
+-- change record macro to Q
+vim.cmd('nnoremap Q q')
+vim.cmd('nnoremap q <nop>')
+
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files<CR>')
 map('n', '<leader>fdf', '<cmd>lua require("telescope").load_extension("directory").find_files({})<cr>')
