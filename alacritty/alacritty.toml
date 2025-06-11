@@ -17,11 +17,11 @@ bindings = [
 ]
 
 [font]
-normal.family = "JetBrains Mono"
+normal.family = "FiraCode Nerd Font Mono"
 normal.style = "Regular"
-bold.family = "JetBrains Mono"
+bold.family = "FiraCode Nerd Font Mono"
 bold.style = "Bold"
-italic.family = "JetBrains Mono"
+italic.family = "FiraCode Nerd Font Mono"
 italic.style = "Italic"
 size = 12.0
 
