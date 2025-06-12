@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=WezTerm
+Comment=Start WezTerm terminal
+Exec=/home/inarodoslawsky/tools/bin/wezterm
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=Utility;
