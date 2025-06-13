@@ -117,3 +117,20 @@ map('n', '<leader>r', '<cmd>CustomNvimTreeFind<CR>')
 -- LSP
 --  format selected range in visual mode or complete file
 vim.keymap.set({'v', 'n'}, '<leader>F', vim.lsp.buf.format)
+
+
+-- Telekasten
+-- Launch panel if nothing is typed after <leader>z
+map("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+map('n', '<leader>zf', '<cmd>lua require("telekasten").find_notes()<CR>')
+map('n', '<leader>zg', '<cmd>lua require("telekasten").search_notes()<CR>')
+map('n', '<leader>zd', '<cmd>lua require("telekasten").goto_today()<CR>')
+map('n', '<leader>zz', '<cmd>lua require("telekasten").follow_link()<CR>')
+map('n', '<leader>zn', '<cmd>lua require("telekasten").new_note()<CR>')
+map('n', '<leader>zN', '<cmd>lua require("telekasten").new_templated_note()<CR>')
+map('n', '<leader>zt', '<cmd>lua require("telekasten").toggle_todo({onlyTodo = true})<CR>')
+map('n', '<leader>zl', '<cmd>lua require("telekasten").insert_link()<CR>')
+map('n', '<leader>zc', '<cmd>lua require("telekasten").show_calendar()<CR>')
+map('n', '<leader>zb', '<cmd>lua require("telekasten").show_backlinks()<CR>')
+map('n', '<leader>z#', '<cmd>lua require("telekasten").show_tags()<CR>')
+map('n', '<leader>zy', '<cmd>lua require("telekasten").yank_notelink()<CR>')
