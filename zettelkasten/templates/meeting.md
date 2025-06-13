@@ -1,11 +1,8 @@
 #  {{title}}  
-----
-Date: {{date}}
-Attendees: 
-Tags: [ _ ]
-----
 
-# Notes
+Date: {{date}}  
+Attendees:  
+Tags: [ _ ]  
 
+---
 
-# ToDos

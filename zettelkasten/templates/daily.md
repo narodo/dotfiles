@@ -1,7 +1,9 @@
 # Daily -  {{date}}
-Tags: [ _ ]
 
-# Notes
+Tags: [ _ ]  
+
+----
+
 
 
 # Todo

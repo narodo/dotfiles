@@ -1,5 +1,6 @@
 #  {{title}}
-----
-Created: {{date}}
+
+Created: {{date}}  
 Tags: [ _ ]
+
 ----
