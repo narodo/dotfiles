@@ -118,6 +118,8 @@ map('n', '<leader>r', '<cmd>CustomNvimTreeFind<CR>')
 --  format selected range in visual mode or complete file
 vim.keymap.set({'v', 'n'}, '<leader>F', vim.lsp.buf.format)
 
+-- Markdown
+map('n', '<leader>mt', '<cmd>lua require("markview").commands.toggle()<CR>')
 
 -- Telekasten
 -- Launch panel if nothing is typed after <leader>z
