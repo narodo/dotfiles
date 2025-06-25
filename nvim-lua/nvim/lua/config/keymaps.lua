@@ -99,13 +99,6 @@ map('n', '<F6>', ':lua require("dap").step_into()<CR>')
 map('n', '<F7>', ':lua require("dap").step_out()<CR>')
 map('n', '<F8>', ':lua require("dap").step_over()<CR>')
 
-vim.keymap.set('n', '<leader>dj',
-    function()
-        path = vim.fn.input('Path to json: ', vim.fn.getcwd() .. '/', 'file')
-        require("dap.ext.vscode").load_launchjs(path)
-    end
-)
-
 -- DAP UI
 map('n', '<leader>du', ':lua require("dapui").toggle()<CR>')
 
