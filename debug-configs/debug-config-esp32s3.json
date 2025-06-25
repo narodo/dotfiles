@@ -1,0 +1,29 @@
+
+{
+   "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ESP32-S3 OpenOCD debugging",
+            "type": "cppdbg",
+            "request": "launch",
+            "program":"${workspaceFolder}/build/hello_world.elf",
+            "cwd": "${workspaceFolder}",
+
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/naro/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin/xtensa-esp32s3-elf-gdb",
+            "stopOnEntry" : true,
+            "setupCommands": [
+                { "text": "source ${workspaceFolder}/build/gdbinit/symbols"},
+                { "text": "source ${workspaceFolder}/build/gdbinit/prefix_map"},
+                { "text": "source ${workspaceFolder}/build/gdbinit/py_extensions"},
+                { "text": "source ${workspaceFolder}/build/gdbinit/connect",
+                  "ignoreFailures": true,
+                },
+                { "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+                }
+            ],
+        }
+    ]
+}
