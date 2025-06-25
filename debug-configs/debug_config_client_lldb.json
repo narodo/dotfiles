@@ -1,0 +1,25 @@
+{ 
+   "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ARD lldb remote",
+            "type": "codelldb",
+            "request": "launch",
+            "program":"${workspaceFolder}/build/android/modules/client/ar-display-manager-client",
+            "args" : [
+                "getCurrentGPUData"
+            ],
+            "initCommands": [
+                "platform select remote-android",
+                "platform connect connect://localhost:3333",
+                "settings set target.inherit-env false",
+                "target create ${workspaceFolder}/build/android/modules/client/ar-display-manager-client"
+            ],
+            "postRunCommands": [
+                "breakpoint set --name main"
+            ],
+            "stopOnEntry" : false
+        }
+    ]
+}
+
