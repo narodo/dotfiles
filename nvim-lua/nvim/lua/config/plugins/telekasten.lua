@@ -54,7 +54,7 @@ local function syncGitRepo(path, name)
         name = task_name,
         cmd = { "bash" },
         -- if we don't have anything to commit 'git commit' will return 1. Make sure it always returns 0
-        args = { "-c", "git add * && git commit -m 'Automated commit' > /dev/null || true && git push" },
+        args = { "-c", "git pull && git add * && git commit -m 'Automated commit' > /dev/null || true && git push" },
         cwd = path,
         components = {
             { "mycomps.nvimNotify" },
